@@ -1,27 +1,6 @@
 <template>
     <div id='head' class="head">  
-      <div class="header-nav">
-        <div class="header-nav-wrap">
-          <div class="header-nav-content">
-            <div class="header-nav-item">
-              <img src="~/assets/image/navgation/Home20x20.png">
-              首页
-            </div>
-            <div class="header-nav-item">
-              <img src="~/assets/image/navgation/market20x20.png">
-              商城
-            </div>
-              <div class="header-nav-item">
-              我的订单
-            </div>
-              <div class="header-nav-item">
-              关于我们
-              <img src="~/assets/image/navgation/IconRowDown.png">
-            </div>
-          </div>
-        </div>
-      
-      </div>
+      <NavigationHeader></NavigationHeader>
       <div class="header-wrap">
         <a class="logo" title="蘑菇街首页" >
           <img src="~/assets/image/navgation/logo.png">
@@ -42,8 +21,14 @@
 </template>
 
 <script>
+import NavigationHeader from 'common/NavigationHeader.vue'
+// import { component } from 'vue/types/umd'
+
 export default {
-name:'NavigationBar'
+  name:'NavigationBar',
+  components:{
+    NavigationHeader
+  }
 }
 </script>
 <style  lang='less' scoped>
@@ -52,36 +37,6 @@ name:'NavigationBar'
     clear:both;
     background-color: #fff;
     z-index: 999;
-}
-.header-nav{
-  height: 33px;
-  background-color: #fff;
-  border-bottom: 1px solid #f0f0f0;
-}
-.header-nav-wrap{
-  width:1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.header-nav-content{
-  float: right;
-  color:#999;
-}
-.header-nav-item{
-  line-height: 33px;
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 0 0 20px;
-  font-size: 12px;
-  
-
-}
-.header-nav-item img{
- width: 10px;
- height: 10px;
- margin-right: 3px;
- vertical-align: middle;
- display: inline-block;
 }
 
 .header-wrap{
