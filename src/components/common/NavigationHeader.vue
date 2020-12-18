@@ -2,30 +2,24 @@
       <div class="header-nav">
         <div class="header-nav-wrap">
           <div class="header-nav-content">
-            <navigation-item>
-              <template v-slot:title>
-               <img src="~assets/image/navgation/Home20x20.png">
-                首页
-              </template>
-            </navigation-item>
+            <div class="header-nav-item">      
+              <img src="~assets/image/navgation/Home20x20.png">
+              首页
+             </div>      
 
-             <navigation-item>
-              <template v-slot:title>
-               <img src="~assets/image/navgation/market20x20.png">
+     
+           <div class="header-nav-item">          
+              <img src="~assets/image/navgation/market20x20.png">
                 商城
-              </template>
-            </navigation-item>
-
-            <navigation-item>
-              <template v-slot:title>
-               <img src="~assets/image/navgation/IconRowDown.png">
-                我的订单
-              </template>
-            </navigation-item>
-             <navigation-item>
-              <template v-slot:title>
+            </div>
+           <div class="header-nav-item">   
+            
+              我的订单
+           </div>
+            <div class="header-nav-item"   @mouseover=openHeaderMsg @mouseleave="closeHeaderMsg"> 
                 关于我们
-                  <div class="header-about-us-detail"  style="display:block">
+                <img src="~assets/image/navgation/IconRowDown.png">
+                  <div class="header-about-us-detail" :style=isShowHeaderMsg  >
                     <div class="mgj-detail-content">
                       <div class="mgj-content-us-msg">
                         <header-detail-item :Contents=helperText ></header-detail-item>
@@ -39,18 +33,23 @@
                         <span>©2020 Mogu.com 杭州卷瓜网络有限公司</span>
                       </div>
                       <div class="mgj-content-us-certificate">
-
-                          <div v-for="(certificateText,index) in certificateTexts" :key=index style="float:left">
-                             <b v-if="index!=0" class="margin-header-b">  |  </b>
-                            <span>{{ certificateText[0] }}</span>
-                          </div>
-
+                        <p>
+                          <span v-for="(certificateText,index) in certificateTexts" :key=index   style="display: inline-block">
+                             <b v-if="index!=0" class="mgj-header-b">  |  </b>
+                            <span><a :href=certificateText[1]>{{ certificateText[0] }} </a></span>
+                          </span>
+                        </p>
+                          <a style="display: inline-block">浙公网安备 3301060xxxxxxx号 <b class="mgj-header-b"> | </b></a> 
+                          <a style="display: inline-block">互联网药品信息服务资格证书编号：（浙)-经营性-xxxx-xxxx <b class="mgj-header-b"> | </b></a> 
+                          <a style="display: inline-block">浙网食A33010003 <b class="mgj-header-b"> | </b></a> 
+                          <a style="display: inline-block">出版物网络交易平台服务经营备案证 <b class="mgj-header-b"> | </b></a> 
+                          <a style="display: inline-block">(浙)网械平台备字[2018]第0000x号 </a> 
+                          <div class="mgj-content-us-localtion">联系电话：077-8848-666（在线时间：09：00-22：00）浙江省杭州市西湖区古墩路xx号浙商财富中心x号楼</div>
                       </div>
-                      <div class="mgj-content-us-localtion"></div>
+                      
                     </div>
                   </div>
-              </template>
-            </navigation-item>
+            </div>
 
             <!-- <div v-for="(title,index) in titles" class="header-nav-item" :key="index">
               <span v-if="index!=0" style="margin-right:10px">|</span> 
@@ -64,12 +63,12 @@
 </template>
 
 <script>
-import NavigationItem from 'common/commonHome/NavigationItem.vue'
+// import NavigationItem from 'common/commonHome/NavigationItem.vue'
 import HeaderDetailItem from 'common/commonHome/HeaderDetailItem.vue'
 export default {
   name: 'NavigationHeader',
   components:{
-    NavigationItem,
+    // NavigationItem,
     HeaderDetailItem
   },
   props:{
@@ -106,9 +105,21 @@ export default {
         ['营业执照:  913301065526808764 ','https://s10.mogucdn.com/mlcdn/c45406/181119_0a3j5l86651d5ciklai091dd78d41_1239x1753.jpg?acm=3.mce.1_10_19kyq.32170.0.6T7ntsjpwA41d.pos_870-m_223509-sd_119'],
         ['营业性演出许可证','https://s5.mogucdn.com/mlcdn/c45406/191106_618hj14k5i3b0959i0b8d6j0gifa4_1653x2338.jpg?acm=3.mce.1_10_1mzcw.32170.0.6T7ntsjpwA41g.pos_871-m_536100-sd_119'],
         ['网络文化经营许可证','https://s5.mogucdn.com/mlcdn/c45406/191209_1cg4g6i3l7aflgc4f4ih38251a76j_2480x3507.jpg?acm=3.mce.1_10_1naa0.32170.0.6T7ntsjpwA41j.pos_872-m_543176-sd_119'],
- 
-     ]
+        ['网络信息服务信用承诺书','https://s11.mogucdn.com/mlcdn/c45406/200106_4fafdg42lib53g4hdh4f7l9g3ff16.pdf?acm=3.mce.1_10_1niqe.32170.0.mDkrxsjpLNXM5.pos_873-m_548655-sd_119'],
+        ['增值电信业务经营许可证：浙xx-xxxxxxx','https://s10.mogucdn.com/mlcdn/c45406/171109_1ll0b37l83lj8e3i35h28a92g31i3_1239x1754.jpg?acm=3.mce.1_10_19kys.32170.0.mDkrxsjpLNXM6.pos_874-m_223510-sd_119'],
+        ['安全责任书','https://s16.mogucdn.com/p2/160831/upload_506h1d771b5k20j9148ldjj0kdaab_960x1344.jpg?acm=3.mce.1_10_19l02.32170.0.mDkrxsjpLNXM7.pos_875-m_223533-sd_119']
+        ],
+      isShowHeaderMsg:{display:'none'}
     }
+  },
+  methods:{
+    closeHeaderMsg: function(){
+      this.isShowHeaderMsg.display='none';
+    },
+    openHeaderMsg: function(){
+      this.isShowHeaderMsg.display='block'
+    }
+
   }
   
 }
@@ -121,16 +132,17 @@ export default {
   border-bottom: 1px solid #f0f0f0;
   width:100%;
 }
-.header-nav-wrap{
-  // width: 1690px;
-  margin-left: auto;
-  margin-right: auto;
-}
+// .header-nav-wrap{
+//    width: 1200px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 .header-nav-content{
   float: right;
   color:#999;
   line-height: 30px;
 }
+
 .header-about-us-detail{
   position: absolute;
   right: 30px;
@@ -143,7 +155,7 @@ export default {
 .mgj-detail-content{
   width: 960px;
   font-size: 12px;
-  padding-top: 32px;
+  padding: 32px 0 32px 0;
   color: #333;
 
 }
@@ -182,10 +194,35 @@ export default {
   font-size: 12px;
   line-height: 26px;
   font-weight: 300;
+  text-align: center;
+  color: #999;
 }
-.margin-header-b{
+.mgj-header-b{
   margin: 0 5px 0 5px;
   font-weight: 400;
 }
+a:-webkit-any-link{
+  color: #999;
+}
+.mgj-content-us-localtion{
+
+  text-align: center;
+}
+.header-nav-item{
+  line-height: 33px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20px 0 20px;
+  font-size: 12px;
+  cursor:pointer;
+}
+.header-nav-item img{
+ width: 10px;
+ height: 10px;
+ margin-right: 3px;
+ vertical-align: middle;
+ display: inline-block;
+}
+
 
 </style>

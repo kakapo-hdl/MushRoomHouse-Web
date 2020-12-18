@@ -1,5 +1,5 @@
 <template>
-  <div class="mgj-header—mod">
+  <div>
       <div v-for="(content,index) in Contents" :key="index" >
         <div v-if="index===0" class="mgj-header-title">
           {{ content[0]}} 
@@ -25,7 +25,6 @@ props:{
 <style lang='less' scoped>
 .mgj-header—mod{
   flex: 1;
-  float: left;
 }
 .mgj-header-title{
   font-size: 14px;

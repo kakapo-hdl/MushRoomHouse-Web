@@ -1,7 +1,7 @@
 body{
-  min-width: 1200px;
   background-color: #fff;
   margin: 0;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -11,4 +11,33 @@ body, button, input, select, textarea {
 }
 :root{
     --color-text:#f00;
+}
+ .header-nav-wrap{
+    margin-left: auto;
+    margin-right: auto;
+   }
+@media only screen and (max-width: 960px) {
+  body {
+    min-width: 960px;
+  }
+  .header-nav-wrap{
+    width: 960px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width:1690px) {
+  body {
+    min-width: 1200px;
+  }
+  .header-nav-wrap{
+    width: 1200px;
+  }
+}
+@media screen and (min-width: 1690px) {
+  body {
+    min-width:  1690px;
+  }
+  .header-nav-wrap{
+    width:  1690px;
+  }
 }
