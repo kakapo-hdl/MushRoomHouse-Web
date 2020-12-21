@@ -5,17 +5,17 @@
             <div class="header-nav-item">      
               <img src="~assets/image/navgation/Home20x20.png">
               首页
-             </div>      
-
-     
-           <div class="header-nav-item">          
-              <img src="~assets/image/navgation/market20x20.png">
+             </div>  
+            <b style="margin:0 20px 0 20px; height:33px; font-weight:300">|</b>     
+           <div class="header-nav-item">     
+            <img src="~assets/image/navgation/market20x20.png">
                 商城
             </div>
+           <b style="margin:0 20px 0 20px; height:33px; font-weight:300">|</b>     
            <div class="header-nav-item">   
-            
               我的订单
            </div>
+           <b style="margin:0 20px 0 20px; height:33px; font-weight:300">|</b>     
             <div class="header-nav-item"   @mouseover=openHeaderMsg @mouseleave="closeHeaderMsg"> 
                 关于我们
                 <img src="~assets/image/navgation/IconRowDown.png">
@@ -117,7 +117,7 @@ export default {
       this.isShowHeaderMsg.display='none';
     },
     openHeaderMsg: function(){
-      this.isShowHeaderMsg.display='block'
+      this.isShowHeaderMsg.display='block';
     }
 
   }
@@ -147,7 +147,7 @@ export default {
   position: absolute;
   right: 30px;
   background-color: #fff;
-  z-index: 999;
+  z-index: 9999;
   box-shadow:0 0 20px 0 #E7EAED;
   border-top: 1px solid #e5e5e5;
   border-radius: 2px;
@@ -212,7 +212,6 @@ a:-webkit-any-link{
   line-height: 33px;
   display: inline-block;
   vertical-align: top;
-  margin: 0 20px 0 20px;
   font-size: 12px;
   cursor:pointer;
 }
