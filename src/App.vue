@@ -1,23 +1,108 @@
 <template>
-  <div id="app">
-    <NavigationHeader></NavigationHeader>
+  <div id="app" @scroll="getScollPosition($event)">
+    <navigation-float></navigation-float>
+      <navigation-header></navigation-header>
     <navigation-bar></navigation-bar>
+
+    <ul>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+      <li>列表$*100</li>
+    </ul>
+
+
   </div>
 </template>
 
 
 <script>
-import  NavigationBar from 'components/common/NavigationBar.vue'
+import NavigationFloat from 'components/common/NavigationFloat.vue'
 import NavigationHeader from 'common/NavigationHeader.vue'
+import NavigationBar from 'components/common/NavigationBar.vue'
+
+
+
 export default {
   name: 'App',
-  components: {
+  components: { 
+    NavigationFloat,
     NavigationBar,
-    NavigationHeader
+    NavigationHeader,
+
   }
 }
 </script>
 
 <style scoped>
-  @import "assets/css/base.css";
+@import "assets/css/base.css";
+
 </style>

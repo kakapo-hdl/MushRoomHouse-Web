@@ -34,7 +34,14 @@ img {
 .header-nav-wrap{
     margin-left: auto;
     margin-right: auto;
-   }
+}
+.header-sticky-content .normal-seach-content {
+  margin-top: 0;
+}
+.header-sticky-content .function-icon {
+  margin-top: 0;
+}
+
 @media only screen and (max-width: 960px) {
   body {
     min-width: 960px;
