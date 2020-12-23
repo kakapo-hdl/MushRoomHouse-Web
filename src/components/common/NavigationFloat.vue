@@ -23,7 +23,7 @@ mounted(){
         window.addEventListener('scroll',function(){
         let scrollTop = document.documentElement.scrollTop;
         let sticky = document.getElementById('sticky-content');
-        console.log(scrollTop+'');
+        // console.log(scrollTop+'');
         if(scrollTop>120 && sticky.className.indexOf('header-sticky-show')==-1){
           sticky.className+=' header-sticky-show';
         }

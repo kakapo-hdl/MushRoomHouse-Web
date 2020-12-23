@@ -1,83 +1,10 @@
 <template>
   <div id="app" @scroll="getScollPosition($event)">
     <navigation-float></navigation-float>
-      <navigation-header></navigation-header>
+    <navigation-header></navigation-header>
     <navigation-bar></navigation-bar>
-
-    <ul>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-      <li>列表$*100</li>
-    </ul>
+    <waterfall-display></waterfall-display>
+ 
 
 
   </div>
@@ -88,6 +15,7 @@
 import NavigationFloat from 'components/common/NavigationFloat.vue'
 import NavigationHeader from 'common/NavigationHeader.vue'
 import NavigationBar from 'components/common/NavigationBar.vue'
+import WaterfallDisplay from './components/common/WaterfallDisplay.vue'
 
 
 
@@ -97,12 +25,12 @@ export default {
     NavigationFloat,
     NavigationBar,
     NavigationHeader,
-
+    WaterfallDisplay
   }
 }
 </script>
 
-<style scoped>
+<style  scoped>
 @import "assets/css/base.css";
 
 </style>
