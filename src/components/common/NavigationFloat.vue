@@ -40,6 +40,7 @@ methods:{
 </script>
 <style lang='less' scoped>
 .header-sticky-content {
+  z-index: 999;
   width: 100%;
   position:fixed;
   top:-75px;
