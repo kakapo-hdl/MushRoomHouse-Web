@@ -32,44 +32,39 @@
                       <div class="mgj-content-us-hostname">
                         <span>©2020 Mogu.com 杭州卷瓜网络有限公司</span>
                       </div>
-                      <div class="mgj-content-us-certificate">
+                      <company-right></company-right>
+                      <!-- <div class="mgj-content-us-certificate">
                         <p>
                           <span v-for="(certificateText,index) in certificateTexts" :key=index   style="display: inline-block">
                              <b v-if="index!=0" class="mgj-header-b">  |  </b>
                             <span><a :href=certificateText[1]>{{ certificateText[0] }} </a></span>
                           </span>
-                        </p>
-                          <a style="display: inline-block">浙公网安备 3301060xxxxxxx号 <b class="mgj-header-b"> | </b></a> 
+                        </p> -->
+                          <!-- <a style="display: inline-block">浙公网安备 3301060xxxxxxx号 <b class="mgj-header-b"> | </b></a> 
                           <a style="display: inline-block">互联网药品信息服务资格证书编号：（浙)-经营性-xxxx-xxxx <b class="mgj-header-b"> | </b></a> 
                           <a style="display: inline-block">浙网食A33010003 <b class="mgj-header-b"> | </b></a> 
                           <a style="display: inline-block">出版物网络交易平台服务经营备案证 <b class="mgj-header-b"> | </b></a> 
-                          <a style="display: inline-block">(浙)网械平台备字[2018]第0000x号 </a> 
-                          <div class="mgj-content-us-localtion">联系电话：077-8848-666（在线时间：09：00-22：00）浙江省杭州市西湖区古墩路xx号浙商财富中心x号楼</div>
-                      </div>
-                      
+                          <a style="display: inline-block">(浙)网械平台备字[2018]第0000x号 </a>   
+                       </div> -->
+                      <div class="mgj-content-us-localtion">联系电话：077-8848-666（在线时间：09：00-22：00）浙江省杭州市西湖区古墩路xx号浙商财富中心x号楼</div>
                     </div>
                   </div>
             </div>
 
-            <!-- <div v-for="(title,index) in titles" class="header-nav-item" :key="index">
-              <span v-if="index!=0" style="margin-right:10px">|</span> 
-              <div v-if="title[1]===''" style="display:none"></div>
-              <div v-else class="header-nav-item"><img :src="title[1]"></div>
-              {{title[0]}}
-            </div> -->
           </div>
         </div> 
       </div>
 </template>
 
 <script>
-// import NavigationItem from 'common/commonHome/NavigationItem.vue'
 import HeaderDetailItem from 'common/commonHome/HeaderDetailItem.vue'
+import CompanyRight from './commonHome/CompanyRight.vue';
 export default {
   name: 'NavigationHeader',
   components:{
     // NavigationItem,
-    HeaderDetailItem
+    HeaderDetailItem,
+    CompanyRight
   },
   props:{
     title:String,
@@ -205,7 +200,7 @@ a:-webkit-any-link{
   color: #999;
 }
 .mgj-content-us-localtion{
-
+  margin-top: 15px;
   text-align: center;
 }
 .header-nav-item{

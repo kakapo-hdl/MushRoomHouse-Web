@@ -10,8 +10,7 @@
           目录
           <header-category :isShow="isShowCategory"></header-category>
         </div>
-
-         <header-tool style="margin-top:28px"></header-tool>
+         <header-tool style="margin-top:28px;overflow:hidden;"></header-tool>
       <!-- </div> -->
        
       </div>

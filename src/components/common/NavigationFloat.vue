@@ -69,7 +69,7 @@ methods:{
   height: 30px;
 }
 .normal-seach-content {
-  width: 550px;
+  // width: 550px;
   margin:0 0 0 0;
   height: 44px;
 }

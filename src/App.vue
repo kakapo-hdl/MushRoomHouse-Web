@@ -4,6 +4,7 @@
     <navigation-header></navigation-header>
     <navigation-bar></navigation-bar>
     <waterfall-display></waterfall-display>
+    <foot></foot>
  
 
 
@@ -16,6 +17,7 @@ import NavigationFloat from 'components/common/NavigationFloat.vue'
 import NavigationHeader from 'common/NavigationHeader.vue'
 import NavigationBar from 'components/common/NavigationBar.vue'
 import WaterfallDisplay from './components/common/WaterfallDisplay.vue'
+import Foot from './components/common/Foot.vue'
 
 
 
@@ -25,7 +27,8 @@ export default {
     NavigationFloat,
     NavigationBar,
     NavigationHeader,
-    WaterfallDisplay
+    WaterfallDisplay,
+    Foot
   }
 }
 </script>

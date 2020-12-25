@@ -11,6 +11,11 @@
           <div class="cate-icon-text">{{item.text}}</div>
         </a>
       </div>
+      <div class="shopping-word-wrap">
+        <a v-for="(item,index) in wordLink" :key=index class="word-item-link" :style="index===0 ? 'color: var(--color-pink)':''">
+          {{item}}
+        </a>
+      </div>
     </div>
   </div>
 
@@ -21,6 +26,7 @@ export default {
 name:'ContentTitle',
 data(){
   return{
+    wordLink:['时尚套装','百搭卫衣','T恤','短袖外套','人气衬衫','宽松毛衣','连衣裙','休闲裤','牛仔裤','靴子'],
     displayMsgs:[
       {text:'上衣',src:(require('assets/image/DisplayTitle/shirt.png'))},
       {text:'裙子',src:(require('assets/image/DisplayTitle/skirt.png'))},
@@ -54,11 +60,19 @@ div img{
   border-radius: 10px;
   box-shadow: 0 0 18px #eee;
 }
+.shopping-word-wrap{
+  width: 710px;
+  background-color: --color-text #fff;
+  margin-bottom:6px;
+    overflow: hidden;
+}
 .shopping-mall-wrap{
   width: 710px;
   background-image: url("../../../assets/image/DisplayTitle/ShoppingMarket.gif");
   background-size: 100%;
   height: 279px;
+  padding-left: 12px;
+  margin-bottom: 20px;
 }
 .shopping-item-link{
   height: 55px;
@@ -77,5 +91,19 @@ div img{
   // display: inline;
   margin-top: 75px;
   font-size: 12px;
+
+  // background-color: #fff;
+}
+.word-item-link {
+  width:120px;
+  height: 35px;
+  line-height:35px;
+  margin: 0 0 14px 18px;
+  background: #F5F5F5;
+  border-radius: 22px;
+  float: left;
+  display: block;
+  text-align: center;
+  font-size: 14px;
 }
 </style>

@@ -50,13 +50,13 @@ name:'HeaderTool'
   margin-left: 76px;
 }
 .normal-seach-content {
-  width: 550px;
+  // width: 550px;
   margin:28px 0 0 0;
   height: 44px;
 }
 .top-nav-seach{
   position: relative;
-  width: 552px;
+  // width: 552px;
 }
 .input-nav{
   float: left;
@@ -78,7 +78,7 @@ name:'HeaderTool'
   border-radius: 4px;
 }
 .function-icon{
-  width:335px;
+  width:325px;
   float: left;
   margin: 30px 0 0 26px;
 }

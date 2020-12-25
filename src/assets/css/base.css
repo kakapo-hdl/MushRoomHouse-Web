@@ -1,5 +1,6 @@
 :root{
     --color-text:#f00;
+    --color-pink:#FF4466;
 }
 body{
   background-color: #fff;
@@ -41,13 +42,33 @@ img {
 .header-sticky-content .function-icon {
   margin-top: 0;
 }
-
-@media only screen and (max-width: 960px) {
+.mgj-foot-help a:-webkit-any-link {
+  color: #fff ;
+ }
+ .mgj-foot-help .mgj-title-border {
+  background: #fff ;
+ }
+ .mgj-foot-companyright .mgj-content-us-certificate a{
+   color: #FFF;
+ }
+ .mgj-foot-companyright .mgj-content-us-certificate b{
+  color: #FFF;
+}
+@media only screen and (max-width: 1200px) {
   body {
     min-width: 960px;
   }
+  .header-wrap{
+    width: 960px !important;    
+  }
   .header-nav-wrap{
     width: 960px;
+  }
+  .input-nav {
+    width: 300px !important;
+  }
+  .seach-nav-content {
+    margin-left: 9px !important;
   }
 }
 
@@ -55,15 +76,28 @@ img {
   body {
     min-width: 1200px;
   }
+  .header-wrap{
+    width: 1200px !important;    
+  }
   .header-nav-wrap{
     width: 1200px;
   }
+
 }
 @media screen and (min-width: 1690px) {
   body {
     min-width:  1690px;
   }
+  .header-wrap{
+    width: 1690px !important;    
+  }
   .header-nav-wrap{
     width:  1690px;
   }
+  .input-nav {
+    width: 620px !important;
+  }
+  .seach-nav-content {
+    margin-left: 283px !important;
+}
 }
