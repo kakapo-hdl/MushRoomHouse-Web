@@ -3,23 +3,31 @@
     <div class="display-page">
       <div class="wrap-content">
         <div class="waterfall-wrap">
+          
+          <content-title class="cloumn-title-wrap" style="left: 245px">
+          </content-title>
+        </div>
+        <!-- <div class="waterfall-wrap">
+          
           <div class="column-wrap" ref="one">
-            <div v-for="(item, index) in arg[0]" :key="index" class="image-item">
-              <div>
-                <a href="最外面的连接" title=" 「 穿上TA等待初雪 」亮丝羽绒棉服女ins冬季长款外套2020新款潮  #今天穿什么#" >
-                  <div>
-                    <div>
+            <div v-for="(item, index) in arg[0]" :key="index" class="image-item ">
+              <div class="">
+                <a href="最外面的连接" title=" 「 穿上TA等待初雪 」亮丝羽绒棉服女ins冬季长款外套2020新款潮  #今天穿什么#" style="display:block">
+                  <section>
+                    <div class="content-under-shadow display-section" >
+                     <div class="goods-number">
+                     </div>
+                     <div class="goods-text">
+                        这期颜色搭配也太好看了！🌈陪你过五颜六色的冬天吧～
+                        <a class="goods-text-link">#配饰就该这么搭#</a>
+                     </div>
+                    </div>
+                    <div >
                        <img :src="item.src" />
                     </div>
-                    <div>
-                       <img :src="item.src" />
+                    <div class="img-mark-description display-section">
                     </div>
-                    <div class="img-mark-description">
-
-                    </div>
-                  </div>
-                 
-
+                  </section>
                 </a>
               </div>
               <div>
@@ -27,7 +35,7 @@
               </div>
             </div>
           </div>
-          <div class="column-wrap" ref="two" style="padding-top: 1202px">
+          <div class="column-wrap" ref="one" style="padding-top: 1202px">
             <div
               v-for="(item, index) in arg[1]"
               :key="index"
@@ -73,7 +81,7 @@
           </div>
           <content-title class="cloumn-title-wrap" style="left: 245px">
           </content-title>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -87,11 +95,11 @@ export default {
   data() {
     return {
       images: [
-        // {text:'图片一',src:require('assets/image/TestImage/1.gif')},
-        // // {text:'图片2',src:require('assets/image/TestImage/2.jpg')},
-        // {text:'图片3',src:require('assets/image/TestImage/3.jpg')},
-        // {text:'图片4',src:require('assets/image/TestImage/4.jpg')},
-        // {text:'图片5',src:require('assets/image/TestImage/5.jpg')},
+        {text:'图片一',src:require('assets/image/TestImage/1.gif')},
+        // {text:'图片2',src:require('assets/image/TestImage/2.jpg')},
+        {text:'图片3',src:require('assets/image/TestImage/3.jpg')},
+        {text:'图片4',src:require('assets/image/TestImage/4.jpg')},
+        {text:'图片5',src:require('assets/image/TestImage/5.jpg')},
         { text: "图片6", src: require("assets/image/TestImage/6.jpg") },
         // {text:'图片7',src:require('assets/image/TestImage/7.jpg')},
         // {text:'图片8',src:require('assets/image/TestImage/8.jpg')},
@@ -107,10 +115,18 @@ export default {
         // {text:'图片一',src:require('assets/image/TestImage/1.gif')},
         // {text:'图片2',src:require('assets/image/TestImage/2.jpg')},
       ],
+      screenWidth:"1690",
       heightArray: [0, 0, 0, 0, 0],
       arg: [[], [], [], [], []],
       // arg1:[],arg2:[],arg3:[],arg4:[],arg5:[],
     };
+  },
+  beforeCreate: function() {
+    //choce display column by screen width
+    let width =document.body.offsetWidth;
+    if(width<=1200) this.screenWidth="1200";
+    if(1690<=width>1200) this.screenWidth="1200-1690";   
+    if(1690<width) this.screenWidth="1690";  
   },
   mounted: function () {
     this.$nextTick(() => {
@@ -125,11 +141,11 @@ export default {
           return console.log("image loading finish !");
         }
         this.heightArray[0] = this.$refs.one.offsetHeight;
-        this.heightArray[1] = this.$refs.two.offsetHeight;
+        // this.heightArray[1] = this.$refs.two.offsetHeight;
         this.heightArray[2] = this.$refs.three.offsetHeight;
         this.heightArray[3] = this.$refs.four.offsetHeight;
         this.heightArray[4] = this.$refs.five.offsetHeight;
-        console.log(this.heightArray);
+        // console.log(this.$refs.one);
         let minHeight = this.heightArray[0];
         let index = 0;
         // if(this.arg[0].length==0 ||this.arg[1].length==0 ||this.arg[2].length==0||this.arg[3].length==0||this.arg[4].length==0){
@@ -181,7 +197,6 @@ export default {
 .column-wrap {
   width: 220px;
   margin-right: 24px;
-
   float: left;
 }
 .column-wrap-last {
@@ -192,18 +207,51 @@ export default {
 .column-wrap img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 }
 .cloumn-title-wrap {
   position: absolute;
 }
 .img-mark-description {
-    position: absolute;
+    border-radius: 10px;
+     position: absolute;
     top: 0;
     left: 0;
-    width: 10%;
-    height: 10%;
+    width: 100%;
+    height: 100%;
     background-color: #000;
     opacity: 0.5;
+}
+.display-section {
+  display: none;
+}
+.image-item {
+  position: relative;
+  margin-bottom: 24px;
+  transition: 0.5s;
+}
+.image-item:hover{
+  transform: translate(0,-3px);
+}
+.image-item:hover .display-section {
+  display: block;
+}
+.content-under-shadow {
+  position:absolute;
+  bottom: 0;
+  z-index: 1;
+  margin-bottom: 12px;
+  padding:0 14px 0 14px
+}
+.goods-text{
+  word-break: break-all;
+  color: #fff;
+  font-size: 14px;
+}
+.goods-text-link {
+  font-weight: 700;
+  text-decoration: underline;
+   color: #fff;
+  font-family: PingFangSC-Medium;
 }
 </style>
