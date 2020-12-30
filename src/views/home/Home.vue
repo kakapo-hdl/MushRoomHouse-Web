@@ -1,15 +1,14 @@
 <template>
     <div id='home'>
-      <div>
-
-      </div>
+      <waterfall-display></waterfall-display>
     </div>
 </template>
 
 <script>
+import WaterfallDisplay from '../../components/common/WaterfallDisplay.vue'
 export default {
-name:'Home'
-
+  components: { WaterfallDisplay },
+name:'Home',
 }
 </script>
 <style lang='less' scoped>

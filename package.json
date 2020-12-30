@@ -36,6 +36,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
+      "vue/no-unused-components": "off",
       "camelcase": [
         0,
         {
