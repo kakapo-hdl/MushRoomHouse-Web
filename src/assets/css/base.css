@@ -37,22 +37,22 @@ img {
     margin-right: auto;
 }
 .header-sticky-content .normal-seach-content {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 .header-sticky-content .function-icon {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 .mgj-foot-help a:-webkit-any-link {
-  color: #fff ;
+  color: #fff !important;
  }
  .mgj-foot-help .mgj-title-border {
-  background: #fff ;
+  background: #fff !important;
  }
  .mgj-foot-companyright .mgj-content-us-certificate a{
-   color: #FFF;
- }
+   color: #FFF !important;
+  }
  .mgj-foot-companyright .mgj-content-us-certificate b{
-  color: #FFF;
+  color: #FFF !important; ;
 }
 @media only screen and (max-width: 1200px) {
   body {

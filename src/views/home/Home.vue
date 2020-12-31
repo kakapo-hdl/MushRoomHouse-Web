@@ -1,15 +1,32 @@
 <template>
     <div id='home'>
-      <waterfall-display></waterfall-display>
+    <navigation-float></navigation-float>
+    <navigation-header></navigation-header>
+    <navigation-bar></navigation-bar>
+    <waterfall-display></waterfall-display>
+    <foot></foot>
     </div>
 </template>
 
 <script>
+import Foot from '../../components/common/Foot.vue'
+import NavigationBar from '../../components/common/NavigationBar.vue'
+
+import NavigationFloat from '../../components/common/NavigationFloat.vue'
+import NavigationHeader from '../../components/common/NavigationHeader.vue'
 import WaterfallDisplay from '../../components/common/WaterfallDisplay.vue'
 export default {
-  components: { WaterfallDisplay },
+  components: {
+    NavigationFloat,
+    NavigationHeader,
+    NavigationBar,
+    WaterfallDisplay,
+    Foot
+  },
 name:'Home',
 }
 </script>
-<style lang='less' scoped>
+<style scoped>
+
+@import "../../assets/css/base.css";
 </style>

@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home.vue')
 const Category = () => import('../views/category/category.vue')
+const Login = () => import('../views/login/MouseRoomLogin.vue')
 const routers = [
     {
         path:'*',
@@ -14,6 +15,10 @@ const routers = [
         path:'/Category',
         component:Category
     },
+    {
+      path:'/Login',
+      component:Login
+  },
 ]
 
 export default new VueRouter({

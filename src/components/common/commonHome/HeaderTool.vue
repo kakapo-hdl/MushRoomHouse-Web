@@ -27,10 +27,10 @@
                 下载APP
               </a>
               <div class="header-login fr">
-                <a href="#" class="header-login-margin">
+                <router-link to="/Login" class="header-login-margin">
                   <img class="header-login-icon" src="https://s10.mogucdn.com/mlcdn/c45406/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png">
                   登录
-                </a>
+                </router-link >
               </div>
             </div>
         </div>
@@ -67,12 +67,14 @@ name:'HeaderTool'
   background-color: #f7f7f7f7;
   color: #666;
   padding:0 15px 0 15px;
+  outline: none;
 }
 .search-btn{
   height: 48px;
   width: 58px;
   border: none;
   cursor:pointer;
+    outline: none;
   background-image: url(https://s10.mogucdn.com/mlcdn/c45406/181205_2llkjh1g0fe27h51ahh5k5f27gkk9_116x96.png);
   background-size:100%;
   border-radius: 4px;

@@ -2,9 +2,9 @@
     <div id='sticky-content' class="header-sticky-content">
       <div class="header-wrap">
         <div  class="sticky-image-content">
-          <a href="#">
+          <router-link to="/Home" >
             <img src="https://s10.mogucdn.com/mlcdn/c45406/190102_6df9775216h16jc84da8c9hdfi3ga_258x60.png" alt="">
-          </a>
+          </router-link>
         </div>
         <header-tool></header-tool>
       </div>

@@ -2,9 +2,9 @@
     <div id='head' class="head">  
 
       <div class="header-wrap">
-        <a class="logo" title="蘑菇街首页" >
+        <router-link to="/Home" class="logo" title="蘑菇街首页" >
           <img src="~/assets/image/navgation/logo.png">
-        </a>
+        </router-link>
         <div class="header-category"  @mouseover=openCategoryMsg @mouseleave=closeCategoryMsg>
           <img src="~/assets/image/navgation/headerManu.png" alt="" >
           目录
