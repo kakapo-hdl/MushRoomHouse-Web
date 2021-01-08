@@ -27,5 +27,5 @@ export default {
 
 <style  scoped>
 @import "assets/css/base.css";
-
+@import "assets/font-awesome-4.7.0/css/font-awesome.css";
 </style>

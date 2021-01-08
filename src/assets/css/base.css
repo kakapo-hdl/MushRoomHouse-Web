@@ -1,6 +1,7 @@
 :root{
     --color-text:#f00;
     --color-pink:#FF4466;
+    --color-gray:#999;
 }
 body{
   background-color: #fff;
@@ -53,6 +54,34 @@ img {
   }
  .mgj-foot-companyright .mgj-content-us-certificate b{
   color: #FFF !important; ;
+}
+.pink-buttom{
+  color: var(--color-pink);
+  border: 1px solid var(--color-pink);
+  height: 34px;
+  line-height: 34px;
+  border-radius: 24px;
+  display: inline-block;
+  margin-top: 12px;
+}
+.gray-buttom{
+  color: var(--color-gray);
+  border: 1px solid var(--color-gray);
+  height: 34px;
+  line-height: 34px;
+  border-radius: 24px;
+  display: inline-block;
+  margin-top: 12px;
+}
+.text-999{
+  color:#999;
+}
+.text-splitter{
+  margin: 0 5px 0 5px;
+  background:#999;
+  height: 11px;
+  width: 1px;
+  display: inline-block;
 }
 @media only screen and (max-width: 1200px) {
   body {

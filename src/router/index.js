@@ -2,7 +2,7 @@ import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home.vue')
 const Category = () => import('../views/category/category.vue')
 const Login = () => import('../views/login/MouseRoomLogin.vue')
-const Goods = () => import('../views/goods/goods.vue')
+const Goods = () => import('../views/goods/GoodsDetail.vue')
 const routers = [
   {
     path: '*',
