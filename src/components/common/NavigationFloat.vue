@@ -1,5 +1,5 @@
 <template>
-    <div id='sticky-content' class="header-sticky-content">
+    <div id='stickycontent' class="header-sticky-content">
       <div class="header-wrap">
         <div  class="sticky-image-content">
           <router-link to="/Home" >
@@ -22,7 +22,7 @@ mounted(){
     this.$nextTick(function(){
         window.addEventListener('scroll',function(){
         let scrollTop = document.documentElement.scrollTop;
-        let sticky = document.getElementById('sticky-content');
+        let sticky =document.getElementById('stickycontent');
         // console.log(scrollTop+'');
         if(scrollTop>120 && sticky.className.indexOf('header-sticky-show')==-1){
           sticky.className+=' header-sticky-show';

@@ -3,10 +3,11 @@ const Home = () => import('../views/home/Home.vue')
 const Category = () => import('../views/category/category.vue')
 const Login = () => import('../views/login/MouseRoomLogin.vue')
 const Goods = () => import('../views/goods/GoodsDetail.vue')
+const ShppingMall = () => import('../views/shopping-mall/ShoppingMall.vue')
 const routers = [
   {
     path: '*',
-    redirect: '/Goods'
+    redirect: '/ShppingMall'
   },
   {
     path: '/Home',
@@ -23,6 +24,10 @@ const routers = [
   {
     path: '/Goods',
     component: Goods
+  },
+  {
+    path: '/ShppingMall',
+    component: ShppingMall
   },
 ]
 
