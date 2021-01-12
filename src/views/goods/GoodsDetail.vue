@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import Carousel from "../../components/common/commonHome/Carousel.vue";
+import Carousel from "../../components/common/commonHome/CarouselGoods.vue";
 import MenIntroduction from "../../components/common/commonHome/MenIntroduction.vue";
 import Foot from "../../components/common/Foot.vue";
 import NavigationBar from "../../components/common/NavigationBar.vue";
