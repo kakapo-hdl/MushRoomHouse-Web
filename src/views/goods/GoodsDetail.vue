@@ -27,11 +27,7 @@
         </div>
         <!-- 评论输入框 -->
         <div class="comment-input-block">
-          <input
-            type="text"
-            class="comment-input fl"
-            placeholder="长得那么好看的你也来评论一下吧~"
-          />
+          <input type="text" class="comment-input fl"  placeholder="长得那么好看的你也来评论一下吧~"/>
           <input type="submit" class="comment-submit fr" value="发表" />
         </div>
         <!-- 评论展示 -->
@@ -45,7 +41,7 @@
                 <div>
                   {{ item.userName }}
                   <div class="user-icon-action">
-                    <span class="fa fa-commenting-o icon-action" style="margin-right: 15px">
+                    <span class="fa fa-commenting-o icon-action" @click="showHiddenInput(index)" ref='commentingIcon'>
                     </span>
                     <span class="fa fa-thumbs-o-up icon-action"></span>
                     {{ item.thumbsUp }}
@@ -54,20 +50,18 @@
                 <div>{{ item.commentDate }}</div>
               </div>
             </div>
-
             <div class="comment-conent-wrap">
               <div class="comment-conent-text">
                 {{item.commentText}}
               </div>
-              
-        <div class="comment-input-block" style="display:none">
-          <input type="text" class="comment-input fl" placeholder="长得那么好看的你也来评论一下吧~" style="width:477px" >
+          <div class="comment-input-block"  style="display:none" ref="replyInput">
+          <input type="text" class="comment-input fl" :placeholder='"回复@"+item.userName' style="width:477px">
           <input type="submit" class="comment-submit fr" value="发表" />
         </div>
               <div class="comment-content-child">
                 <div v-for="(itemchild,index) in item.commentCommunity" :key="index">
                   <div style="margin-bottom:8px; color:#333" v-if="itemchild.isSelf">Zhing蛮大大大: {{itemchild.replyText}}</div>
-                  <div style="margin-bottom:8px; color:#333" v-esle="itemchild.isSelf">{{item.userName}}: {{itemchild.replyText}}</div>
+                  <div style="margin-bottom:8px; color:#333" v-else>{{item.userName}}: {{itemchild.replyText}}</div>
                 </div>
               </div>
             </div>
@@ -126,7 +120,7 @@ export default {
         {
           userImage:
             "https://s11.mogucdn.com/mlcdn/5abf39/180914_861kh7jlkjheb6c29ffh07j4jjl91_400x400.jpg_64x64.webp",
-          userName: "王娜what",
+          userName: "王娜111",
           commentDate: "2020.12.24 07:13",
           thumbsUp: 8,
           commentText:
@@ -139,6 +133,17 @@ export default {
       ],
     };
   },
+  methods:{
+    showHiddenInput(index){
+      if(this.$refs.replyInput[index].style.display=="none"){
+        this.$refs.replyInput[index].style.display="block";
+        this.$refs.commentingIcon[index].style.color="#FF4466";
+       }
+      else {
+        this.$refs.replyInput[index].style.display="none";
+        this.$refs.commentingIcon[index].style.color="";}
+    }
+  }
 };
 </script>
 <style lang='less' scoped>
@@ -233,6 +238,9 @@ export default {
 .user-icon-action {
   color: #999;
   float: right;
+}
+.user-icon-action span:first-child{
+  margin-right: 15px;
 }
 .comment-conent-wrap{
   margin: 8px 0 0 56px;
