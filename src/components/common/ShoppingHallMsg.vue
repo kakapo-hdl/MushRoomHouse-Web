@@ -1,7 +1,8 @@
 <template>
   <div>
+    <!-- 倒计时 -->
     <div class="slider-wrap">
-      <div class="slider-countdown">
+      <div class="slider-countdown fl">
         <img src="~assets/image/shoppingmall/countdownimage.png" />
         <div class="count-down-calculation">
           <span>{{ timeDown.hour }}</span>
@@ -11,23 +12,50 @@
           <span>{{ timeDown.second }}</span>
         </div>
       </div>
-      <div class="cousel"></div>
+      <!-- 轮播图 -->
+      <carousel class="shoppingHall-carousel"
+                :displayCounter=6
+                :imageData="imageData"
+                :isDisplayPrice=true
+                :isOringinalPrice=true
+                :imageClass="imageForm"
+      > </carousel>
     </div>
+
     <div class="fast-sell-wrap"></div>
   </div>
 </template>
 
 <script>
+import Carousel from './commonHome/Carousel.vue';
 export default {
+  components: { Carousel },
   name: "ShoppingHallMsg",
   data() {
     return {
       timeDown: { hour:"", min: "", second: "" },
-    };
+    //   itemDate: {
+
+      isDisplayPrice:true,
+      isOringinalPrice:true,
+      displayCounter:6,
+      imageData:[
+        {text:'加绒休闲老爹鞋女ins潮',src:require('assets/image/TestImage/7.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片8',src:require('assets/image/TestImage/8.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片3',src:require('assets/image/TestImage/3.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片4',src:require('assets/image/TestImage/4.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片5',src:require('assets/image/TestImage/5.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片6',src:require('assets/image/TestImage/6.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片2',src:require('assets/image/TestImage/2.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片5',src:require('assets/image/TestImage/5.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片6',src:require('assets/image/TestImage/6.jpg'),price:29.6,oriPrice:33.4},
+        {text:'图片2',src:require('assets/image/TestImage/2.jpg'),price:29.6,oriPrice:33.4},
+      ],
+    }
   },
-  watch(){
+  // watch(){
     
-  },
+  // },
   mounted() {
     // this.$nextTick(
        this.getCountDownTime(0)
@@ -51,8 +79,13 @@ export default {
 };
 </script>
 <style lang='less' scoped>
+.slider-wrap{
+  overflow: hidden;
+}
 .slider-countdown {
   position: relative;
+  width: 230px;
+
 }
 .slider-countdown img {
   width: 230px;
@@ -82,5 +115,12 @@ export default {
   color: #0c0c0c;
   font-family: "DIN Condensed";
   font-size: 32px;
+}
+// 轮播图的大小
+.shoppingHall-carousel{
+  float: left;
+  width:1460px;
+  min-height: 100px;
+  background-color: #fff;
 }
 </style>

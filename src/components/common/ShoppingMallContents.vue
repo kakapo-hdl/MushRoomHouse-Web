@@ -15,20 +15,19 @@
         <div class="shopping-mall-main">
           <thame-market class="fl"></thame-market>
           <!-- /*标题背景图片 */ -->
-          <a href="#" class="header-image fl">
-          </a>
+          <a href="#" class="header-image fl"> </a>
           <div class="fl user-info">
             <div class="block-top">
               <a href="#" class="user-info-image"></a>
-              <div>菇凉好! <span style="font-weight:bold"> 欢迎来到蘑菇街~</span></div>
-              <a href="#" class="user-info-member">
-                会员中心
-              </a>
+              <div>
+                菇凉好! <span style="font-weight: bold"> 欢迎来到蘑菇街~</span>
+              </div>
+              <a href="#" class="user-info-member"> 会员中心 </a>
             </div>
             <div class="block-top">
               <a href="#">
                 <div class="block-tow-title">来蘑菇街APP</div>
-                <div style="color:#666">海量时尚好货</div>
+                <div style="color: #666">海量时尚好货</div>
                 <a class="user-gift-image"></a>
               </a>
             </div>
@@ -37,16 +36,17 @@
       </div>
     </div>
     <!-- 有个倒计时和轮播图 -->
-     <div class="shopping-mall-wrapper">
-     <shopping-hall-msg></shopping-hall-msg>
-     </div>
-
+    <div style="overflow:hidden; background-color:#F5F5F5" >
+      <div class="shopping-mall-wrapper" style="margin-top: 15px">
+        <shopping-hall-msg></shopping-hall-msg>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ThameMarket from './commonHome/ThameMarket.vue';
-import ShoppingHallMsg from './ShoppingHallMsg.vue';
+import ThameMarket from "./commonHome/ThameMarket.vue";
+import ShoppingHallMsg from "./ShoppingHallMsg.vue";
 export default {
   components: { ThameMarket, ShoppingHallMsg },
   name: "ShoppingMallContents",
@@ -57,7 +57,7 @@ export default {
   width: 1690px;
   margin: 0 auto 0 auto;
 }
-.shopping-mall-wrapper:nth-of-type(2){
+.shopping-mall-wrapper:nth-of-type(2) {
   background-color: #f5f5f5;
 }
 .shopping-mall-herder {
@@ -107,42 +107,43 @@ export default {
 .shopping-mall-main {
   min-height: 400px;
 }
-.header-image{
+.header-image {
   display: block;
   background: url("../../assets/image/shoppingmall/headerImage.jpg");
   height: 440px;
   width: 1134px;
   background-size: 100% 100%;
 }
-.user-info{
+.user-info {
   width: 250px;
   height: 420px;
   margin-top: 10px;
 }
-.block-top{
+.block-top {
   text-align: center;
   width: 100%;
   height: 205px;
   background-color: rgba(255, 255, 255, 0.8);
 }
-.block-top:nth-child(2){
+.block-top:nth-child(2) {
   margin-top: 10px;
 }
-.block-top:first-child{
+.block-top:first-child {
   height: 195px;
   padding-top: 10px;
 }
-.user-info-image{
-    display: block;
-    text-decoration: none;
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 0px auto;
-    border-radius: 100%;
-    background: #ff94c6  url("../../assets/image/shoppingmall/user.png") no-repeat center center;
-    background-size: 30px 30px;
+.user-info-image {
+  display: block;
+  text-decoration: none;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 0px auto;
+  border-radius: 100%;
+  background: #ff94c6 url("../../assets/image/shoppingmall/user.png") no-repeat
+    center center;
+  background-size: 30px 30px;
 }
-.user-info-member{
+.user-info-member {
   margin: 7px auto 0px auto;
   width: 72px;
   height: 24px;
@@ -151,16 +152,17 @@ export default {
   color: #ff4466;
   display: block;
 }
-.block-tow-title{
+.block-tow-title {
   padding: 20px 0 5px 0;
   font-size: 16px;
 }
-.user-gift-image{
+.user-gift-image {
   display: block;
   height: 130px;
   width: 130px;
   margin: 5px auto 0px auto;
-  background: #F8DEDE url("../../assets/image/shoppingmall/gift.png") no-repeat center ;
+  background: #f8dede url("../../assets/image/shoppingmall/gift.png") no-repeat
+    center;
   background-size: contain;
 }
 </style>
