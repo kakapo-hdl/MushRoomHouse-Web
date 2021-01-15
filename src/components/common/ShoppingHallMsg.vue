@@ -19,6 +19,7 @@
                 :isDisplayPrice=true
                 :isOringinalPrice=true
                 :autoWiperTime=4000
+                :isAutoSwiper=true
          
       > </carousel>
     </div>
@@ -41,7 +42,7 @@ export default {
       isOringinalPrice:true,
       displayCounter:6,
       imageData:[
-        {text:'加绒休闲老爹鞋女ins潮',src:require('assets/image/TestImage/7.jpg'),price:29.6,oriPrice:33.4},
+        {text:'加绒休闲老爹鞋女ins潮ssssssss',src:require('assets/image/TestImage/7.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片8',src:require('assets/image/TestImage/8.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片3',src:require('assets/image/TestImage/3.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片4',src:require('assets/image/TestImage/4.jpg'),price:29.6,oriPrice:33.4},
