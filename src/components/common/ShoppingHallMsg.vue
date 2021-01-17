@@ -19,12 +19,17 @@
                 :isDisplayPrice=true
                 :isOringinalPrice=true
                 :autoWiperTime=4000
-                :isAutoSwiper=true
-         
-      > </carousel>
+                :isAutoSwiper=true> 
+      </carousel>
     </div>
-
-    <div class="fast-sell-wrap"></div>
+    <div class="fast-sell-wrap">
+      <a href="#"><img src="~assets/image/shoppingmall/limitTimeSell.png"></a>
+        <a href="#"><img src="~assets/image/shoppingmall/SeconKill.png"></a>
+          <a href="#"><img src="~assets/image/shoppingmall/hotFastSell.png"></a>
+            <a href="#"><img src="~assets/image/shoppingmall/newFastSell.png"></a>
+              <a href="#"><img src="~assets/image/shoppingmall/fashionDress.png"></a>
+                <a href="#"><img src="~assets/image/shoppingmall/beautyShop.png"></a>
+    </div>
   </div>
 </template>
 
@@ -52,7 +57,7 @@ export default {
         {text:'图片5',src:require('assets/image/TestImage/5.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片6',src:require('assets/image/TestImage/6.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片2',src:require('assets/image/TestImage/2.jpg'),price:29.6,oriPrice:33.4},
-                {text:'加绒休闲老爹鞋女ins潮',src:require('assets/image/TestImage/7.jpg'),price:29.6,oriPrice:33.4},
+        {text:'加绒休闲老爹鞋女ins潮',src:require('assets/image/TestImage/7.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片8',src:require('assets/image/TestImage/8.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片3',src:require('assets/image/TestImage/3.jpg'),price:29.6,oriPrice:33.4},
         {text:'图片4',src:require('assets/image/TestImage/4.jpg'),price:29.6,oriPrice:33.4},
@@ -135,4 +140,26 @@ export default {
   min-height: 100px;
   background-color: #fff;
 }
+.fast-sell-wrap{
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 10px;
+}
+.fast-sell-wrap a:first-child{
+  width:470px;
+  height: 150px;
+  display: block;
+}
+.fast-sell-wrap a:not(:first-child){
+  width:230px;
+  height: 150px;
+  display: block;
+  margin-left: 10px;
+}
+.fast-sell-wrap >a img{
+  width: 100%;
+}
+
 </style>

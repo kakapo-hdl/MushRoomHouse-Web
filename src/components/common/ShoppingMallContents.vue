@@ -38,7 +38,8 @@
     <!-- 有个倒计时和轮播图 -->
     <div style="overflow:hidden; background-color:#F5F5F5" >
       <div class="shopping-mall-wrapper" style="margin-top: 15px">
-        <shopping-hall-msg></shopping-hall-msg>
+        <shopping-hall-msg style="margin-bottom:48px"></shopping-hall-msg>
+        <shopping-girl-msg></shopping-girl-msg>
       </div>
     </div>
   </div>
@@ -46,9 +47,10 @@
 
 <script>
 import ThameMarket from "./commonHome/ThameMarket.vue";
+import ShoppingGirlMsg from './ShoppingGirlMsg.vue';
 import ShoppingHallMsg from "./ShoppingHallMsg.vue";
 export default {
-  components: { ThameMarket, ShoppingHallMsg },
+  components: { ThameMarket, ShoppingHallMsg, ShoppingGirlMsg },
   name: "ShoppingMallContents",
 };
 </script>

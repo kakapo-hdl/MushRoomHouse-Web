@@ -20,9 +20,7 @@
           <a class="carousel-display-text">{{ item.text }}</a>
           <div class="carousel-price">
             <span class="fl carousel-display-price">¥{{ item.price }}</span>
-            <span class="fr carousel-display-original-price">{{
-              item.oriPrice
-            }}</span>
+            <span class="fr carousel-display-original-price">¥{{item.oriPrice}}</span>
           </div>
         </div>
       </div>
@@ -86,7 +84,6 @@ export default {
   },
 
   mounted() {
-    // this.$refs.swiperItem[this.displayIndex].style="left:0px;display:block"
     this.$refs.swiperItem[this.displayIndex].style = "left:0px;display:block;";
   },
   methods: {
@@ -147,8 +144,8 @@ export default {
     StartTimer(){
      this.timer=setInterval(() => {
      this.couterTime++;
-     if(this.couterTime/10>=this.autoWiperTime){
-     this.slideCarousel("left")  
+     if(this.couterTime>=(this.autoWiperTime*0.1)){
+     this.slideCarousel("left") 
      this.couterTime=0
      }  
      }, 10);

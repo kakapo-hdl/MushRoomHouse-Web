@@ -13,6 +13,7 @@ import Foot from '../../components/common/Foot.vue';
 import NavigationBar from '../../components/common/NavigationBar.vue';
 import NavigationFloat from "../../components/common/NavigationFloat.vue";
 import NavigationHeader from "../../components/common/NavigationHeader.vue";
+import ShoppingGirlMsg from '../../components/common/ShoppingGirlMsg.vue';
 import ShoppingMallContents from '../../components/common/ShoppingMallContents.vue';
 import WaterfallDisplay from '../../components/common/WaterfallDisplay.vue';
 export default {
@@ -22,7 +23,8 @@ export default {
     NavigationBar,
     WaterfallDisplay,
     Foot,
-    ShoppingMallContents 
+    ShoppingMallContents,
+    ShoppingGirlMsg 
      },
   name: "",
 };
