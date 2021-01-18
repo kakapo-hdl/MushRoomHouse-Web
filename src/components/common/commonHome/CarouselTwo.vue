@@ -12,15 +12,15 @@
         <div
           v-for="(item, index) in displayItem"
           :key="index"
-          class="carousele-image-one fl"
+          class="carousel-image-two fl"
         >
-          <div class="carousel-display-block">
+          <div class="carousel-display-block-two">
             <img :src="item.src" />
           </div>
           <a class="carousel-display-text">{{ item.text }}</a>
           <div class="carousel-price">
             <span class="fl carousel-display-price">¥{{ item.price }}</span>
-            <span class="fr carousel-display-original-price">¥{{item.oriPrice}}</span>
+            <!-- <span class="fr carousel-display-original-price">¥{{item.oriPrice}}</span> -->
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "carousel",
+  name: "CarouselTwo",
   data() {
     return {
       displayImage: [],
@@ -82,6 +82,7 @@ export default {
     this.$nextTick(this.groundImage(this.displayCounter));
     this.StartTimer()
   },
+
   mounted() {
     this.$refs.swiperItem[this.displayIndex].style = "left:0px;display:block;";
   },
@@ -155,58 +156,78 @@ export default {
 <style lang='less' scoped>
 .carousel-display-area {
   overflow: hidden;
-  width: 1460px;
-  height: 294px;
+  // width: 1460px;
+  width: 1450px;
+  height: 408px;
   position: relative;
+  margin-bottom: 10px;
 }
 .carousel-wiper-item {
   display: none;
   position: absolute;
   top: 0;
-  left: -1460px;
+  width: 1450px;
+  // left: -1460px;
   transition-property: left;
   transition-duration: 500ms;
-  padding: 0 20px 0 20px;
 }
-.carousel-display-block {
-  width: 195px;
-  height: 195px;
-  overflow: hidden;
+
+.carousel-display-block-two {
+position: relative;
+    width: 199px;
+    height: 297px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 7px;
 }
-.carousel-display-block img {
-  width: 195px;
+.carousel-display-block-two img {
+     position: absolute;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%
 }
-.carousele-image-one {
-  height: 248px;
-  width: 190px;
-  padding: 30px 23px 16px 23px;
+.carousel-image-two{
+    width: 230px;
+    height: 408px;
+    padding: 16px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
 }
+
 .carousel-display-text {
+  width:199px;
   color: #666;
   font-size: 16px;
-  line-height: 20px;
-  height: 22px;
+  line-height: 22px;
+  height: 44px;
   overflow: hidden;
+  -webkit-line-clamp: 2;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
+  // white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   margin-top: 13px;
   margin-bottom: 2px;
-  padding: 0 10px;
 }
 .carousel-price {
   position: relative;
   top: -5px;
-  padding: 0 10px;
+  // padding: 0 10px;
 }
 .carousel-display-price {
   color: #ff4466;
   font-style: normal;
   font-size: 22px;
-  font-family: "PingFang SC";
+  // font-family: "PingFang SC";
+   font:  tahoma,arial,sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
 }
 .carousel-display-original-price {
-  font-size: 16px;
+  font-size: 22px;
   color: #999;
   font-family: "PingFang SC";
   margin-left: 10px;
@@ -216,16 +237,17 @@ export default {
 }
 .slide-icon-left {
   width: 25px;
-  height: 48px;
+  height: 53px;  line-height: 53px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   position: absolute;
   background-color: #333;
-  opacity: 0.3;
+  opacity: 0.8;
+  left: 16px;
   cursor: pointer;
-  top: 50%;
+  top: 41%;
   margin-top: -24px;
-  line-height: 48px;
+
   padding-left: 4px;
   color: #fff;
   box-sizing: border-box;
@@ -233,17 +255,17 @@ export default {
 }
 .slide-icon-right {
   width: 25px;
-  height: 48px;
-  right: 0;
+  height: 53px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   position: absolute;
   background-color: #333;
-  opacity: 0.3;
+  opacity: 0.8;
+  right:36px;
   cursor: pointer;
-  top: 50%;
+  top: 41%;
   margin-top: -24px;
-  line-height: 48px;
+  line-height: 53px;
   padding-left: 8px;
   color: #fff;
   box-sizing: border-box;

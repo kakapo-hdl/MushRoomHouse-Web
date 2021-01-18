@@ -20,16 +20,16 @@
           <a class="carousel-display-text">{{ item.text }}</a>
           <div class="carousel-price">
             <span class="fl carousel-display-price">¥{{ item.price }}</span>
-            <span class="fr carousel-display-original-price">¥{{item.oriPrice}}</span>
+            <!-- <span class="fr carousel-display-original-price">¥{{item.oriPrice}}</span> -->
           </div>
         </div>
       </div>
-      <div class="slide-icon-left" @click="slideCarousel('left')">
+      <!-- <div class="slide-icon-left" @click="slideCarousel('left')">
         <i class="fa fa-chevron-left"></i>
       </div>
       <div class="slide-icon-right" @click="slideCarousel('right')">
         <i class="fa fa-chevron-right"></i>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -155,8 +155,9 @@ export default {
 <style lang='less' scoped>
 .carousel-display-area {
   overflow: hidden;
-  width: 1460px;
-  height: 294px;
+  width: 1130px;
+  height: 555px;
+  background-color: white;
   position: relative;
 }
 .carousel-wiper-item {
@@ -166,44 +167,46 @@ export default {
   left: -1460px;
   transition-property: left;
   transition-duration: 500ms;
-  padding: 0 20px 0 20px;
+  // padding: 0 20px 0 20px;
 }
 .carousel-display-block {
-  width: 195px;
-  height: 195px;
+   width: 182px;
+  height: 182px;
   overflow: hidden;
 }
 .carousel-display-block img {
-  width: 195px;
+  width: 182px;
+  height: 100%;
 }
 .carousele-image-one {
-  height: 248px;
-  width: 190px;
-  padding: 30px 23px 16px 23px;
+  height: 233px;
+  width: 182px;
+  padding: 21px 23px 0px 21px;
 }
 .carousel-display-text {
-  color: #666;
-  font-size: 16px;
-  line-height: 20px;
-  height: 22px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  margin-top: 13px;
-  margin-bottom: 2px;
-  padding: 0 10px;
+display: inline-block;
+
+      font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    height: 20px;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 182px;
+    color: #333333;
 }
 .carousel-price {
   position: relative;
   top: -5px;
-  padding: 0 10px;
+
 }
 .carousel-display-price {
-  color: #ff4466;
-  font-style: normal;
-  font-size: 22px;
-  font-family: "PingFang SC";
+    color: #ff4466;
+    font-style: normal;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .carousel-display-original-price {
   font-size: 16px;

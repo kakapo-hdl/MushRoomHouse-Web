@@ -7,19 +7,22 @@ const ShppingMall = () => import('../views/shopping-mall/ShoppingMall.vue')
 const routers = [
   {
     path: '*',
-    redirect: '/ShppingMall'
+    redirect: '/ShppingMall',
   },
   {
     path: '/Home',
-    component: Home
+    component: Home,
+    meta: { title: '蘑菇街' }
   },
   {
     path: '/Category',
-    component: Category
+    component: Category, 
+    meta: { title: 'Skills - MyApp' }
   },
   {
     path: '/Login',
-    component: Login
+    component: Login,
+    meta: { title: '登录' }
   },
   {
     path: '/Goods',
@@ -27,7 +30,8 @@ const routers = [
   },
   {
     path: '/ShppingMall',
-    component: ShppingMall
+    component: ShppingMall,
+     meta: { title: '蘑菇街商城' }
   },
 ]
 

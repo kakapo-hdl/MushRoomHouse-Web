@@ -1,21 +1,16 @@
 <template>
   <div>
-      <top-link :cateLinks=topLinkContent :iconColor=iconColor title="女装"></top-link>
-      <div class="left-banner">
-      <a href="">
-        <img
-          src="~assets/image/shoppingmall/fashionGirl.png"/>
-      </a>
-    </div>
+      <top-link :cateLinks=topLinkContent iconColor="#8FABFF" title="女鞋包包"></top-link>
+      <banner-img :imageAndLink=bannerImg></banner-img>
     <div class="right-area-message">
-     <carousel-two class="shoppingHall-carousel"
-                :displayCounter=6
+     <carousel-three class="shoppingHall-carousel"
+                :displayCounter=10
                 :imageData="imageData"
                 :isDisplayPrice=true
                 :isOringinalPrice=true
-                :autoWiperTime=60000
+                :autoWiperTime=600000
                 :isAutoSwiper=true> 
-      </carousel-two>
+      </carousel-three>
       <div class="bottom-banner-first">
         <a class="fl" ><img src="~assets/image/shoppingmall/bannerOne.png"></a>
         <a class="fl"><img src="~assets/image/shoppingmall/bannerTwo.png"></a>
@@ -47,24 +42,29 @@
 </template>
 
 <script>
+import BannerImg from './commonHome/BannerImg.vue';
 import BannerItem from './commonHome/BannerItem.vue';
 import CarouselThree from './commonHome/CarouselThree.vue';
 import CarouselTwo from './commonHome/CarouselTwo.vue';
 import TopLink from './commonHome/TopLink.vue';
 
 export default {
-  name: "ShoppingGirlMsg",
+  name: "ShoppingPakegetMsg",
   components: {
     TopLink,
     CarouselTwo,
-    BannerItem,
-    CarouselThree,
+    BannerItem,  
+     BannerImg,
+         CarouselThree
   },
-  data() {
-    return {
-      topLinkContent:['时尚套装','长袖外套','牛仔外套','卫衣','牛仔裤','休闲裤'],
-      topTitle:"女装",
-      iconColor:"#FFA1B8",
+  data()
+  {
+  return {
+     bannerImg:[
+       {src:'https://s10.mogucdn.com/mlcdn/c45406/181031_454bbi840hi2l3h88h3ekeeklk8di_690x1665.jpg_750x9999.v1c7E.81.webp'},
+       {src:'https://s10.mogucdn.com/mlcdn/c45406/181031_2615dkk1cjbjei96ai87jlf725da9_690x1665.jpg_750x9999.v1c7E.81.webp'}
+       ],
+      topLinkContent:['单鞋','小白鞋','运动鞋','帆布鞋','斜挎包','双肩包','手提包','拉杆箱'],
       isDisplayPrice:true,
       isOringinalPrice:true,
       displayCounter:6,

@@ -17,6 +17,7 @@ import ShoppingGirlMsg from '../../components/common/ShoppingGirlMsg.vue';
 import ShoppingMallContents from '../../components/common/ShoppingMallContents.vue';
 import WaterfallDisplay from '../../components/common/WaterfallDisplay.vue';
 export default {
+  title:'蘑菇街商城',
   components: {
     NavigationFloat, 
     NavigationHeader,

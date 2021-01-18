@@ -38,8 +38,9 @@
     <!-- 有个倒计时和轮播图 -->
     <div style="overflow:hidden; background-color:#F5F5F5" >
       <div class="shopping-mall-wrapper" style="margin-top: 15px">
-        <shopping-hall-msg style="margin-bottom:48px"></shopping-hall-msg>
-        <shopping-girl-msg></shopping-girl-msg>
+        <shopping-hall-msg ></shopping-hall-msg>
+        <shopping-girl-msg ></shopping-girl-msg>
+        <shopping-pakeget-msg></shopping-pakeget-msg>
       </div>
     </div>
   </div>
@@ -49,8 +50,9 @@
 import ThameMarket from "./commonHome/ThameMarket.vue";
 import ShoppingGirlMsg from './ShoppingGirlMsg.vue';
 import ShoppingHallMsg from "./ShoppingHallMsg.vue";
+import ShoppingPakegetMsg from './ShoppingPakegetMsg.vue';
 export default {
-  components: { ThameMarket, ShoppingHallMsg, ShoppingGirlMsg },
+  components: { ThameMarket, ShoppingHallMsg, ShoppingGirlMsg, ShoppingPakegetMsg },
   name: "ShoppingMallContents",
 };
 </script>
@@ -166,5 +168,9 @@ export default {
   background: #f8dede url("../../assets/image/shoppingmall/gift.png") no-repeat
     center;
   background-size: contain;
+}
+.shopping-mall-wrapper div{
+  overflow: hidden;
+  margin-bottom: 48px;
 }
 </style>
