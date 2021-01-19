@@ -24,12 +24,10 @@
           </div>
         </div>
       </div>
-      <!-- <div class="slide-icon-left" @click="slideCarousel('left')">
-        <i class="fa fa-chevron-left"></i>
+      <div class="carousel-dot-wrap ">
+        <a v-for="(displayItem, index) in displayImage" @mouseover="MouseOnDot(index)" :key="index" class="carousel-dot-swiper" :style="index==displayIndex ? 'background-color:#666':''">
+        </a>
       </div>
-      <div class="slide-icon-right" @click="slideCarousel('right')">
-        <i class="fa fa-chevron-right"></i>
-      </div> -->
     </div>
   </div>
 </template>
@@ -90,51 +88,41 @@ export default {
       let imagesNumber = this.imageData.length;
       for (let i = 0; i < imagesNumber / number; i++) {
         this.displayImage[i] = this.imageData.slice(
-          i * number,
-          (i + 1) * number
+          i * number, (i + 1) * number
         );
       }
     },  
     slideCarousel(diretion) {
+      let originalIndex=this.displayIndex
       if (diretion == "left") {
         if (this.displayIndex >= this.displayImage.length - 1)
           this.displayIndex = 0;
         else this.displayIndex++;
-        this.CaroselMove("left", this.displayIndex);
+        this.CaroselMove("left", this.displayIndex,originalIndex 
+        
+        );
       } else {
         if (this.displayIndex > 0) this.displayIndex--;
         else this.displayIndex = this.displayImage.length - 1;
-        this.CaroselMove("right", this.displayIndex);
+        this.CaroselMove("right", this.displayIndex,originalIndex);
       }
     },
-    CaroselMove(diretion, index) {
+    CaroselMove(diretion, index,originalIndex) {
       if (diretion == "left") {
         this.$refs.swiperItem[index].style =
-          "left:1460px;display:block;transition-duration:0ms";
+          "left:1120px;display:block;transition-duration:0ms";
         setTimeout(() => {
-          if (index == 0) {
-            this.$refs.swiperItem[this.displayImage.length - 1].style =
-              "left:-1460px;display:block;";
-          } else {
-            this.$refs.swiperItem[index - 1].style =
-              "left:-1460px;display:block;";
-          }
+          this.$refs.swiperItem[originalIndex].style = "left:-1120px;display:block;";
           this.$refs.swiperItem[index].style = "left:0px;display:block;";
-        }, 0);
+        }, 10);
       }
       else{
          this.$refs.swiperItem[index].style =
-          "left:-1460px;display:block;transition-duration:0ms";
+          "left:-1120px;display:block;transition-duration:0ms";
         setTimeout(() => {
-          if (index == this.displayImage.length - 1) {
-            this.$refs.swiperItem[0].style =
-              "left:1460px;display:block;";
-          } else {
-            this.$refs.swiperItem[index+1].style =
-              "left:1460px;display:block;";
-          }
+         this.$refs.swiperItem[originalIndex].style = "left:1120px;display:block;";
           this.$refs.swiperItem[index].style = "left:0px;display:block;";
-        }, 0);
+        }, 10);
       }
     },
     StopTimer(){
@@ -148,6 +136,17 @@ export default {
      this.couterTime=0
      }  
      }, 10);
+    },
+    MouseOnDot(index){
+      
+      if(index<this.displayIndex){
+        // move direction left
+        this.CaroselMove("right",index,this.displayIndex)
+      }else if(index>this.displayIndex){ 
+        // move direction right
+          this.CaroselMove("left",index,this.displayIndex)
+      }
+     this.displayIndex= index;
     }
   },
 };
@@ -155,19 +154,20 @@ export default {
 <style lang='less' scoped>
 .carousel-display-area {
   overflow: hidden;
-  width: 1130px;
+  width: 1120px;
   height: 555px;
   background-color: white;
   position: relative;
 }
 .carousel-wiper-item {
+  width: 100%;
+  height: 520px;
   display: none;
   position: absolute;
   top: 0;
-  left: -1460px;
+  left: -1120px;
   transition-property: left;
   transition-duration: 500ms;
-  // padding: 0 20px 0 20px;
 }
 .carousel-display-block {
    width: 182px;
@@ -181,12 +181,11 @@ export default {
 .carousele-image-one {
   height: 233px;
   width: 182px;
-  padding: 21px 23px 0px 21px;
+  padding: 21px 21px 0px 21px;
 }
 .carousel-display-text {
 display: inline-block;
-
-      font-size: 14px;
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: 0;
     height: 20px;
@@ -251,5 +250,22 @@ display: inline-block;
   color: #fff;
   box-sizing: border-box;
   font-size: 18px;
+}
+.carousel-dot-wrap{
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+}
+.carousel-dot-swiper{
+    margin-right: 18px;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+    padding: 0;
+    background: #D8D8D8;
+    display: inline-block;
 }
 </style>

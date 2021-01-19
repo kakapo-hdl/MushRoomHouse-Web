@@ -207,7 +207,6 @@ position: relative;
   overflow: hidden;
   -webkit-line-clamp: 2;
   text-overflow: ellipsis;
-  // white-space: nowrap;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   margin-top: 13px;

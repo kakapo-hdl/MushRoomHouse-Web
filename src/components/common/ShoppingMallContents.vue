@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="shopping-mall-wrapper">
-      <div class="shopping-mall-herder">
+      <div class="shopping-mall-herder" style="margin:0">
         <div class="fl">
           <a>主题市场</a>
         </div>
@@ -38,9 +38,9 @@
     <!-- 有个倒计时和轮播图 -->
     <div style="overflow:hidden; background-color:#F5F5F5" >
       <div class="shopping-mall-wrapper" style="margin-top: 15px">
-        <shopping-hall-msg ></shopping-hall-msg>
-        <shopping-girl-msg ></shopping-girl-msg>
-        <shopping-pakeget-msg></shopping-pakeget-msg>
+        <shopping-hall-msg class="sell-market-msg"></shopping-hall-msg>
+        <shopping-girl-msg class="sell-market-msg"></shopping-girl-msg>
+        <shopping-pakeget-msg class="sell-market-msg"></shopping-pakeget-msg>
       </div>
     </div>
   </div>
@@ -168,9 +168,5 @@ export default {
   background: #f8dede url("../../assets/image/shoppingmall/gift.png") no-repeat
     center;
   background-size: contain;
-}
-.shopping-mall-wrapper div{
-  overflow: hidden;
-  margin-bottom: 48px;
 }
 </style>

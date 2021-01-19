@@ -62,5 +62,6 @@ props:{
 .top-link-item a::after{
   content: "|";
   margin-left: 17px;
+  color:#333;
 }
 </style>

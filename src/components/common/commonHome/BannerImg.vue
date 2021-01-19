@@ -20,7 +20,7 @@ props:{
 },
 beforeCreate(){
 
-  
+
   setInterval(() => {
     this.imageIndex++;
     if(this.imageIndex>1) this.imageIndex=0;
@@ -33,7 +33,7 @@ beforeCreate(){
 <style>
 .left-banner-image {
   overflow: hidden;
-  margin-right: 10px;
+  margin-right: 20px;
   float: left;
 }
 .left-banner-image img {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <!-- 倒计时 -->
     <div class="slider-wrap">
       <div class="slider-countdown fl">
