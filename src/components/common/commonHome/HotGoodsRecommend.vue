@@ -311,9 +311,9 @@ methods:{
   font-weight:350;
 }
 .hot-recommend-goods{
-      width: 274px;
-    display: block;
+    width: 274px;
     height: 93px;
+    display: block;
     margin: 0 auto 21px;
     cursor: pointer;
 }
