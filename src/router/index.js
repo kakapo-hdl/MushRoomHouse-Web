@@ -4,10 +4,11 @@ const Category = () => import('../views/category/category.vue')
 const Login = () => import('../views/login/MouseRoomLogin.vue')
 const Goods = () => import('../views/goods/GoodsDetail.vue')
 const ShppingMall = () => import('../views/shoppingMall/ShoppingMall.vue')
+const Register = () => import('../views/register/RegisterUser.vue')
 const routers = [
   {
     path: '*',
-    redirect: '/ShppingMall',
+    redirect: '/Register',
   },
   {
     path: '/Home',
@@ -33,6 +34,11 @@ const routers = [
     component: ShppingMall,
      meta: { title: '蘑菇街商城' }
   },
+  {
+    path:'/register',
+    component:Register,
+    meta:{title:"注册账户"}
+  }
 ]
 
 export default new VueRouter({

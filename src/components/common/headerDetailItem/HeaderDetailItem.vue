@@ -1,6 +1,5 @@
 <template>
   <div class="mgj-header-mod">
-      <!-- <div > -->
         <div v-for="(content,index) in Contents" :key="index"  :class="[index==0 ?'mgj-header-title':'mgj-header-Item']" >
 
           <div v-if="index==0">
@@ -9,7 +8,6 @@
 
           <a v-else :href=content[1]>{{ content[0]}} </a>
       </div>
-      <!-- </div> -->
   </div>
     
 </template>

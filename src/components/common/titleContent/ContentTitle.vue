@@ -7,7 +7,6 @@
       <div class="shopping-mall-wrap">
         <a class="shopping-item-link" href="http://www.baidu.com"/>
         <a class="cate-icon-link" v-for="(item,index) in displayMsgs" :key="index" :style="{backgroundImage:'url('+item.src+')'}" >
-          <!-- <img src="~/assets/image/DisplayTitle/baby.png"> -->
           <div class="cate-icon-text">{{item.text}}</div>
         </a>
       </div>
@@ -88,11 +87,8 @@ div img{
   text-align: center;
   height: 26px;
   line-height: 26px;
-  // display: inline;
   margin-top: 75px;
   font-size: 12px;
-
-  // background-color: #fff;
 }
 .word-item-link {
   width:120px;
