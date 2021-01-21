@@ -1,5 +1,5 @@
 <template>
-    <div id='home'>
+    <div>
     <navigation-float></navigation-float>
     <navigation-header></navigation-header>
     <navigation-bar></navigation-bar>
@@ -9,19 +9,19 @@
 </template>
 
 <script>
-import Foot from '../../components/common/Foot.vue'
-import NavigationBar from '../../components/common/NavigationBar.vue'
+import Foot from '../../components/content/foot/Foot.vue'
+import NavigationBar from '../../components/content/navigation/NavigationBar.vue'
+import NavigationFloat from '../../components/content/navigation/NavigationFloat.vue'
+import NavigationHeader from '../../components/content/navigationHead/NavigationHeader.vue'
+import WaterfallDisplay from './ChildHome/WaterfallDisplay.vue'
 
-import NavigationFloat from '../../components/common/NavigationFloat.vue'
-import NavigationHeader from '../../components/common/NavigationHeader.vue'
-import WaterfallDisplay from '../../components/common/WaterfallDisplay.vue'
 export default {
   components: {
     NavigationFloat,
     NavigationHeader,
     NavigationBar,
     WaterfallDisplay,
-    Foot
+    Foot,
   },
 name:'Home',
 }

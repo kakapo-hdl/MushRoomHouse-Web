@@ -152,10 +152,10 @@
 </template>
 
 <script>
-import CompanyRight from "../../components/common/commonHome/CompanyRight.vue";
-import OurInfo from "../../components/common/commonHome/OurInfo.vue";
+import CompanyRight from '../../components/common/companyRight/CompanyRight.vue';
+import OurInfo from '../../components/content/foot/components/OurInfo.vue';
 export default {
-  components: { OurInfo, CompanyRight },
+  components: {OurInfo, CompanyRight  },
   name: "MouseRoomLogin",
   data() {
     return {

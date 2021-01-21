@@ -1,5 +1,20 @@
-//重新配置路径
+//跨域访问问题 
+const proxyObj = {}
+proxyObj['/'] = {
+  target: 'http://localhost:8070',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/': ''
+  }
+}
+
 module.exports = {
+  devServer: {
+    // host: 'localhost',
+    // port: 8080,
+    proxy: proxyObj
+},
+//重新配置路径
 chainWebpack: config => {
   config.module
     .rule('images')
@@ -23,4 +38,3 @@ chainWebpack: config => {
     }
   }
 }
-

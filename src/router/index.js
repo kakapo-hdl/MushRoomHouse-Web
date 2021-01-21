@@ -3,7 +3,7 @@ const Home = () => import('../views/home/Home.vue')
 const Category = () => import('../views/category/category.vue')
 const Login = () => import('../views/login/MouseRoomLogin.vue')
 const Goods = () => import('../views/goods/GoodsDetail.vue')
-const ShppingMall = () => import('../views/shopping-mall/ShoppingMall.vue')
+const ShppingMall = () => import('../views/shoppingMall/ShoppingMall.vue')
 const routers = [
   {
     path: '*',
