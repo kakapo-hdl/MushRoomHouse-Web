@@ -30,7 +30,7 @@
           <el-input size="small" type="password" v-model="UserForm.checkPassword"></el-input>
         </el-form-item>
         <el-form-item label="性别" label-width="100px" prop="name">
-          <el-radio-group v-model="UserForm.sex">
+          <el-radio-group v-model="UserSex">
             <el-radio label="男"></el-radio>
             <el-radio label="女"></el-radio>
           </el-radio-group>
@@ -90,6 +90,8 @@
 
 <script>
 import { regionData } from "element-china-area-data";
+import { InsertUser } from "../../../network/home";
+import axios from 'axios'
 export default {
   name: "Register-content",
   data() {
@@ -128,6 +130,8 @@ export default {
         },
       ],
       option: regionData,
+      imageFile:"",
+      UserSex:'',
       UserForm: {
         userName: "",
         password: "",
@@ -160,7 +164,6 @@ export default {
   // },
   methods: {
     GetFile() {
-      console.log(111);
       this.$refs.uploadImg.click();
     },
     handleChange() {},
@@ -170,9 +173,25 @@ export default {
       this.previewURL = URL.createObjectURL(file);
     },
     SubmitForm(formName){
+      let flie = this.$refs.uploadImg.files[0];
+      let cacheData = new FormData();
+      
          this.$refs[formName].validate((valid) => {
           if (valid) {
-           console.log(this.UserForm)
+          if(this.UserSex === "男") this.UserForm.sex=true;
+          else this.UserForm.sex=false;
+        //  cacheData  = this.UserForm;
+         cacheData.append('imageFile',flie)
+         cacheData.append('userName',this.UserForm.userName)
+          cacheData.append('password',this.UserForm.password)
+          
+          let ax=axios.create();
+          ax.post('http://localhost:8080/api/insert', cacheData, {
+    // headers: {
+    //   'Content-Type': 'multipart/form-data'
+    // }
+})
+          // InsertUser(cacheData)
           } else {
             console.log('error submit!!');
             return false;

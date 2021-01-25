@@ -14,12 +14,14 @@ export function DeleteUserById(id) {
     }
   }) 
 }
-export function SubmitForm(id) {
+export function InsertUser(data) {
   return request({
-    url: '/api/Delete',
-    method:'PUT',
-    params: {
-      id,
-    }
+    url: '/api/insert',
+    method:'Post',
+     headers:{                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+      'Content-Type': 'multipart/form-data;boundary = ' + new Date().getTime()
+                                                                                                                                                                                                             
+     },
+    data:data,
   })
 }
