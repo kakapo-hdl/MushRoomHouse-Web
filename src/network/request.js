@@ -21,21 +21,9 @@ export function request(config) {
     console.log(config);
     if(config.method  === 'post'){
       if(config.headers['Content-Type'] != 'application/json'){
-        console.log(config.data);
-        config.data = Qs.stringify(config.data)
-        console.log(config.data);
+        console.log();
       }
     }
-        // console.log(config);
-    // if (config.headers['Content-Type'] === 'application/x-www-form-urlencoded') {
-    //   // 把一个参数对象格式化为一个字符串
-    //   return Qs.stringify(config.data)
-    // } else if (config.headers['Content-Type'] === 'multipart/form-data;charset=UTF-8') {
-    //   return config
-    // } else {
-    //   config.headers['Content-Type'] = 'application/json'
-    // }
-    // JSON.stringify(config.data)
     return config
   }))
   // 2.2.响应拦截

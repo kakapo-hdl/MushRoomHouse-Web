@@ -91,7 +91,7 @@
 <script>
 import { regionData } from "element-china-area-data";
 import { InsertUser } from "../../../network/home";
-import {jsToFormData} from "../../../util/util"
+import {JsToFormData,Format} from "../../../util/util"
 import axios from 'axios'
 export default {
   name: "Register-content",
@@ -140,7 +140,7 @@ export default {
         phone: "",
         email: "",
         sex: "",
-        birthday: "",
+        birthday:"",
         location: "",
         profession: "",
         description: "",
@@ -160,9 +160,6 @@ export default {
         }      
     };
   },
-  // mounted(){
-  //   // console.log(this.option);
-  // },
   methods: {
     GetFile() {
       this.$refs.uploadImg.click();
@@ -176,33 +173,22 @@ export default {
     SubmitForm(formName){
       let flie = this.$refs.uploadImg.files[0];
       let cacheData = new FormData();
-      
-         this.$refs[formName].validate((valid) => {
-          if (valid) {
-          if(this.UserSex === "男") this.UserForm.sex=true;
-          else this.UserForm.sex=false;
-        //  cacheData  = this.UserForm;
-         cacheData.append('imageFile',flie)
-         cacheData.append('userName',this.UserForm.userName)
-          cacheData.append('password',this.UserForm.password)
-//           Object.keys(this.UserForm).map(key=>{
-
-//    cacheData.append(key,this.UserForm[key]);
-
-// });
-          console.log(cacheData);
-          let ax=axios.create();
-          ax.post('http://localhost:8080/api/insert', cacheData, {
-    // headers: {
-    //   'Content-Type': 'multipart/form-data'
-    // }
-})
-          // InsertUser(cacheData)
-          } else {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+     
+        if(this.UserSex === "男") this.UserForm.sex=true;
+        else this.UserForm.sex=false;
+        cacheData = JsToFormData(this.UserForm); 
+        cacheData.append('imageFile',flie)
+        if(this.UserForm.birthday !== ''){ 
+          cacheData.set('birthday',Format(this.UserForm.birthday,"yyyy-MM-dd"))
+          console.log(Format(this.UserForm.birthday,"yyyy-MM-dd"));
+        }
+         InsertUser(cacheData)
+        } else {
             console.log('error submit!!');
             return false;
-          }
-        });
+        }});
     }
   },
 };
