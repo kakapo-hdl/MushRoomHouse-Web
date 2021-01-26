@@ -91,6 +91,7 @@
 <script>
 import { regionData } from "element-china-area-data";
 import { InsertUser } from "../../../network/home";
+import {jsToFormData} from "../../../util/util"
 import axios from 'axios'
 export default {
   name: "Register-content",
@@ -184,7 +185,12 @@ export default {
          cacheData.append('imageFile',flie)
          cacheData.append('userName',this.UserForm.userName)
           cacheData.append('password',this.UserForm.password)
-          
+//           Object.keys(this.UserForm).map(key=>{
+
+//    cacheData.append(key,this.UserForm[key]);
+
+// });
+          console.log(cacheData);
           let ax=axios.create();
           ax.post('http://localhost:8080/api/insert', cacheData, {
     // headers: {
