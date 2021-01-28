@@ -16,9 +16,8 @@ import NavigationHeader from '../../components/content/navigationHead/Navigation
 import RegisterConent from './registerChild/RegisterConent.vue'
 
 export default {
-  components: { NavigationFloat, NavigationHeader, NavigationBar, Foot, RegisterConent },
-name:'RegisterUser'
-,
+components: { NavigationFloat, NavigationHeader, NavigationBar, Foot, RegisterConent },
+name:'RegisterUser',
     RegisterConent
 }
 </script>

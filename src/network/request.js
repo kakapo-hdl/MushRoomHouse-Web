@@ -18,7 +18,6 @@ export function request(config) {
   //   console.log(err);
   // })
   instance.interceptors.request.use((config=>{
-    console.log(config);
     if(config.method  === 'post'){
       if(config.headers['Content-Type'] != 'application/json'){
         console.log();
@@ -27,9 +26,8 @@ export function request(config) {
     return config
   }))
   // 2.2.响应拦截
-  instance.interceptors.response.use((config) => {
-
-    return config;
+  instance.interceptors.response.use((data) => {
+     return data.data;
   }, err => {
     console.log(err);
   })
