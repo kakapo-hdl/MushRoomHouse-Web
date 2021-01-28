@@ -220,6 +220,7 @@ export default {
 .user-resister-table{
 width: 670px;
 overflow: hidden;
+margin:0 auto 0 auto;
 padding-bottom: 20px;
 }
 .register-info-title {

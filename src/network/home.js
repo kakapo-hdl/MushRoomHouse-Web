@@ -28,10 +28,6 @@ export function InsertUser(data) {
   return request({
     url: '/api/insert',
     method:'Post',
-    //  headers:{                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    //   'Content-Type': 'multipart/form-data;boundary = ' + new Date().getTime()
-                                                                                                                                                                                                             
-    //  },
     data:data,
   })
 }
