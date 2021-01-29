@@ -91,7 +91,6 @@
 <script>
 import { regionData,CodeToText} from "element-china-area-data";
 import { InsertUser,getSystemUser } from "../../../network/home";
-import {JsToFormData,Format} from "../../../util/util"
 export default {
   name: "Register-content",
   data() {
@@ -161,10 +160,11 @@ export default {
   },
    created(){
     
-  //  getSystemUser(673).then(data=>{
-  //     this.UserForm=data.user;
-  //     this.UserForm.checkPassword = data.user.password;
-  //   });
+   getSystemUser(680).then(data=>{
+      this.UserForm=data.user;
+      this.UserForm.checkPassword = data.user.password;
+      this.provinceData=data.user.location;
+    });
 
   },
   methods: {
@@ -190,7 +190,6 @@ export default {
     SubmitForm(formName){
       let flie = this.$refs.uploadImg.files[0];
       let cacheData = new FormData();
-      let locationData='';
       this.$refs[formName].validate((valid) => {
         if (valid) {
         cacheData.append('systemUser',new Blob([JSON.stringify(this.UserForm)], {type: "application/json"})); 

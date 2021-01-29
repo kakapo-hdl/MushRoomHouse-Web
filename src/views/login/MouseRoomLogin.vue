@@ -18,111 +18,52 @@
         <div class="login-box">
           <div class="login-box-tab">
             <div class="fl">
-              <a
-                :class="isActive == 'one' ? 'login-text-tab' : ''"
-                @click="clickTab('one')"
-                >扫码登陆</a
-              >
+              <a :class="isActive == 'one' ? 'login-text-tab' : ''" @click="clickTab('one')" >扫码登陆</a >
             </div>
             <div class="fl">
-              <a
-                :class="isActive == 'two' ? 'login-text-tab' : ''"
-                :style="isActive != 'three' ? '' : 'display:none'"
-                @click="clickTab('two')"
-                >账号密码登录
-              </a>
+              <a :class="isActive == 'two' ? 'login-text-tab' : ''" :style="isActive != 'three' ? '' : 'display:none'" @click="clickTab('two')" >账号密码登录 </a>
             </div>
             <div class="fl">
-              <a
-                :class="isActive == 'three' ? 'login-text-tab' : ''"
-                :style="isActive == 'three' ? '' : 'display:none'"
-                >手机号登录
-              </a>
+              <a :class="isActive == 'three' ? 'login-text-tab' : ''"  :style="isActive == 'three' ? '' : 'display:none'" >手机号登录 </a>
             </div>
           </div>
-          <div
-            class="qrcode-wrap"
-            :style="isActive == 'one' ? 'display:block' : 'display:none'"
-          >
+          <div class="qrcode-wrap" :style="isActive == 'one' ? 'display:block' : 'display:none'" >
             <div class="qrcode-text">打开APP-搜索-右下角扫一扫</div>
             <div class="qrcode-image">
               <img src="~/assets/image/login/qrCode.png" />
             </div>
             <div><a class="click-down">下载蘑菇街APP</a></div>
           </div>
-          <div
-            class="account-login"
-            :style="isActive != 'one' ? 'display:block' : 'display:none'"
-          >
-            <!-- <p>账号或者密码错误</p> -->
+          <div class="account-login"  :style="isActive != 'one' ? 'display:block' : 'display:none'" >
+            <div></div>
             <div class="login-form">
               <form method="post">
+                <p :style="LoginInfo=='' ? 'display:none':''" class="login-info">{{LoginInfo}}</p>
                 <!-- 账号登录 -->
-                <div
-                  :style="isActive == 'two' ? 'display:block' : 'display:none'"
-                >
-                  <input
-                    type="text"
-                    placeholder="账号/邮箱/手机号"
-                    class="login-input"
-                  />
-                  <input
-                    type="password"
-                    placeholder="请输入密🐎"
-                    class="login-input"
-                  />
+                <div :style="isActive == 'two' ? 'display:block' : 'display:none'" >
+                  <input  type="text" placeholder="账号/邮箱/手机号" class="login-input"  v-model=UserMsg.userName @click="ClickInputArea"/>
+                  <input  type="password" placeholder="请输入密🐎" class="login-input" v-model=UserMsg.password  @click="ClickInputArea" />
                 </div>
                 <!-- 手机密码登录 -->
-                <div
-                  :style="
-                    isActive == 'three'
-                      ? 'display:block;position:relative;'
-                      : 'display:none'
-                  "
-                >
+                <div :style="  isActive == 'three'   ? 'display:block;position:relative;'  : 'display:none'  " >
                   <a href="" class="active-password">获取动态密码</a>
                   <input type="text" placeholder="手机号" class="login-input" />
-                  <input
-                    type="password"
-                    placeholder="验证🐎"
-                    class="login-input"
-                  />
+                  <input  type="password" placeholder="验证🐎"  class="login-input" />
                 </div>
                 <!-- 登录按钮等等 -->
-                <div class="login-btn">
-                  <input
-                    type="submit"
-                    class="login-input"
-                    value="登录"
-                    style="
-                      background-color: #fe4260;
-                      color: #fff;
-                      border: none;
-                      cursor: pointer;
-                    "
-                  />
+                <div style="overflow:hidden;display:flex">
+                  <div type="submit"  class="login-btn" @click="LoginCheck()">登录</div>  
                 </div>
                 <div class="forgive-password">
-                  <a
-                    href="#"
-                    :style="
-                      isActive == 'two' ? 'display:block' : 'display:none'
-                    "
-                    >忘记密码</a
-                  >
+                  <a href="#" :style="  isActive == 'two' ? 'display:block' : 'display:none'" >忘记密码</a>
                 </div>
                 <div
                   class="change-login-method"
                   :style="
-                    isActive == 'three' ? 'display:block' : 'display:none'
-                  "
-                >
+                    isActive == 'three' ? 'display:block' : 'display:none'  " >
                   <a @click="clickTab('two')">账号密码登录</a>
                 </div>
-                <div
-                  class="change-login-method"
-                  :style="isActive == 'two' ? 'display:block' : 'display:none'"
-                >
+                <div class="change-login-method" :style="isActive == 'two' ? 'display:block' : 'display:none'">
                   <a @click="clickTab('three')">手机号登录</a>
                 </div>
               </form>
@@ -154,20 +95,46 @@
 <script>
 import CompanyRight from '../../components/common/companyRight/CompanyRight.vue';
 import OurInfo from '../../components/content/foot/components/OurInfo.vue';
+
+import {LoginCheck} from '../../network/login'
 export default {
   components: {OurInfo, CompanyRight  },
   name: "MouseRoomLogin",
   data() {
     return {
       isActive: "one",
+      LoginInfo:'',
+      UserMsg:{
+      userName:'',
+      password:''
+      }
+
     };
   },
   methods: {
+    ClickInputArea(){
+      this.LoginInfo='';
+    },
     clickTab(params) {
       this.isActive = params;
     },
-  },
-};
+    LoginCheck(){
+      let loginData = new FormData();
+      loginData.append('userName',this.UserMsg.userName)
+      loginData.append('password',this.UserMsg.password)
+      LoginCheck(loginData).then(data=>{
+        if(data.status!=0){
+        this.LoginInfo=data.message;
+        }
+        else{
+          this.LoginInfo='';
+           console.log('登录成功');
+        }
+ 
+      })
+    }
+ }
+}
 </script>
 <style lang='less' scoped>
 .header-login {
@@ -212,6 +179,23 @@ export default {
   height: 600px;
   float: left;
   width: 62.5%;
+}
+.login-btn{
+  // background-color: #fe4260; 
+  // color: #fff; 
+  // border: none; 
+  //  cursor: pointer;
+    display: inline;
+    float: left;
+    border: none;
+    width: 310px;
+    height: 44px;
+    line-height: 44px;
+    background: #f46;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #fff;
+    margin: 0 auto;
 }
 .login-box {
   width: 400px;
@@ -292,6 +276,20 @@ export default {
 }
 .account-login {
   text-align: center;
+}
+.login-info{
+    height: 22px;
+    line-height: 20px;
+    width: 310px;
+    padding-left: 40px;
+    margin: 0 auto 9px auto;
+    border-radius: 12px;
+    color: #f46;
+    background: url(https://s10.mogucdn.com/pic/140408/o613k_kqzfunswozbg2s2ugfjeg5sckzsew_16x16.png) 12px no-repeat #fffff8;
+    border: 1px solid #ffc98e;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: left;
 }
 .login-input {
   width: 310px;
