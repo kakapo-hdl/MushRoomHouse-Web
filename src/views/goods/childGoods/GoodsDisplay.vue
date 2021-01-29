@@ -1,7 +1,7 @@
 <template>
     <div class="goods-wrap">
       <div class="fl" style="width:620px">
-        <carousel></carousel>
+        <carousel-goods></carousel-goods>
         <div class="comment-text">
           高端货和便宜货的区别，大家自己看吧哈<br /><br />看着像不代表一样，我们只做高端品质，谢谢我家粉丝的信任和支持，爱你们❤️
         </div>
@@ -70,12 +70,13 @@
 </template>
 
 <script>
-import Carousel from '../../../components/common/carousel/Carousel.vue';
+import CarouselGoods from '../../../components/common/carousel/CarouselGoods.vue';
 import MenIntroduction from '../../../components/common/personInfo/MenIntroduction.vue';
 
 export default {
   components: {
-    MenIntroduction,Carousel
+    MenIntroduction,
+    CarouselGoods
   },
   name:
      "GoodsDisplay",

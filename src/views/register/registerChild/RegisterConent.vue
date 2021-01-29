@@ -8,8 +8,8 @@
       <div class="upload-avatar-wrap">
         <div class="upload-avatar-lable">头像</div>
         <div class="upload-avatar" @click="GetFile()">
-        <div  class="avatar-image"  :style="UserForm.headImage == '' ? 'display:none' : ''">
-          <img :src="UserForm.headImage" alt="Image preview..." />
+        <div  class="avatar-image"  :style="previewURL == '' ? 'display:none' : ''">
+          <img :src="previewURL" alt="Image preview..." />
         </div>
         <div class="upload-avatar-icon">
           <i class="fa fa-plus"></i>
@@ -30,7 +30,7 @@
           <el-input size="small" type="password" v-model="UserForm.checkPassword"></el-input>
         </el-form-item>
         <el-form-item label="性别" label-width="100px" prop="name">
-          <el-radio-group v-model="UserForm.sex">
+          <el-radio-group v-model="UserSex">
             <el-radio label="男"></el-radio>
             <el-radio label="女"></el-radio>
           </el-radio-group>
@@ -54,8 +54,8 @@
            style="width: 300px"
             size="medium"
             :options="option"
+            v-model="UserForm.location"
             @change="handleChange"
-            v-model="provinceData"
             :clearable=true
           >
           </el-cascader>
@@ -89,8 +89,15 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { regionData,CodeToText} from "element-china-area-data";
 import { InsertUser,getSystemUser } from "../../../network/home";
+=======
+import { regionData } from "element-china-area-data";
+import { InsertUser } from "../../../network/home";
+import {jsToFormData} from "../../../util/util"
+import axios from 'axios'
+>>>>>>> 427bed1fb91c701b9a879933786c86acb318b3db
 export default {
   name: "Register-content",
   data() {
@@ -113,9 +120,7 @@ export default {
           callback();}
         };
     return {
-      option: regionData,
-      provinceData:"", 
-      imageFile:"",
+      previewURL: "",
       professionOptions:[
         {  value: '白领'
         },
@@ -130,6 +135,9 @@ export default {
         {  value: '其他'
         },
       ],
+      option: regionData,
+      imageFile:"",
+      UserSex:'',
       UserForm: {
         userName: "",
         password: "",
@@ -137,11 +145,10 @@ export default {
         phone: "",
         email: "",
         sex: "",
-        birthday:"",
+        birthday: "",
         location: "",
         profession: "",
         description: "",
-        headImage: "",
       },
       rules: {
           userName: [
@@ -158,6 +165,7 @@ export default {
         }      
     };
   },
+<<<<<<< HEAD
    created(){
     
    getSystemUser(680).then(data=>{
@@ -167,39 +175,58 @@ export default {
     });
 
   },
+=======
+  // mounted(){
+  //   // console.log(this.option);
+  // },
+>>>>>>> 427bed1fb91c701b9a879933786c86acb318b3db
   methods: {
     GetFile() {
       this.$refs.uploadImg.click();
     },
-    handleChange(value){
-      let locationData='';
-        for(let i in value){
-          locationData=locationData+"/"+CodeToText[value[i]];
-        }
-        this.UserForm.location =locationData;
-    },
+    handleChange() {},
     DateChange() {},
     uploadImage() {
       let file = this.$refs.uploadImg.files[0];
-      this.UserForm.headImage = URL.createObjectURL(file);
+      this.previewURL = URL.createObjectURL(file);
     },
-    GetSystemUser(){
-
-    }
-    ,
     SubmitForm(formName){
       let flie = this.$refs.uploadImg.files[0];
       let cacheData = new FormData();
+<<<<<<< HEAD
       this.$refs[formName].validate((valid) => {
         if (valid) {
         cacheData.append('systemUser',new Blob([JSON.stringify(this.UserForm)], {type: "application/json"})); 
         cacheData.append('imageFile',flie)
+=======
+      
+         this.$refs[formName].validate((valid) => {
+          if (valid) {
+          if(this.UserSex === "男") this.UserForm.sex=true;
+          else this.UserForm.sex=false;
+        //  cacheData  = this.UserForm;
+         cacheData.append('imageFile',flie)
+         cacheData.append('userName',this.UserForm.userName)
+          cacheData.append('password',this.UserForm.password)
+//           Object.keys(this.UserForm).map(key=>{
+>>>>>>> 427bed1fb91c701b9a879933786c86acb318b3db
 
-        InsertUser(cacheData)
-        } else {
+//    cacheData.append(key,this.UserForm[key]);~
+
+// });
+          console.log(cacheData);
+          let ax=axios.create();
+          ax.post('http://localhost:8080/api/insert', cacheData, {
+    // headers: {
+    //   'Content-Type': 'multipart/form-data'
+    // }
+})
+          // InsertUser(cacheData)
+          } else {
             console.log('error submit!!');
             return false;
-        }});
+          }
+        });
     }
   },
 };
@@ -219,7 +246,6 @@ export default {
 .user-resister-table{
 width: 670px;
 overflow: hidden;
-margin:0 auto 0 auto;
 padding-bottom: 20px;
 }
 .register-info-title {
@@ -239,14 +265,14 @@ padding-bottom: 20px;
 .upload-avatar-lable{
   width: 100px;
   height: 137px;
-  text-align: right;
-  vertical-align: middle;
-  float: left;
-  font-size: 14px;
-  color: #606266;
-  line-height: 137px;
-  padding: 0 12px 0 0;
-  box-sizing: border-box;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    color: #606266;
+    line-height: 137px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
 }
 .upload-avatar {
   border: 1px dashed #d9d9d9;

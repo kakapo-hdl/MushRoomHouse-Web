@@ -8,7 +8,7 @@ const Register = () => import('../views/register/RegisterUser.vue')
 const routers = [
   {
     path: '*',
-    redirect: '/Register',
+    redirect: '/ShppingMall',
   },
   {
     path: '/Home',
