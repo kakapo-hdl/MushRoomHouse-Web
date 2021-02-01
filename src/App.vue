@@ -17,7 +17,6 @@ export default {
     MouseRoomLogin,
   },
   methods:{
-    
     LoginrouteClick(){
           console.log(this.$route.path)
   }

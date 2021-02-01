@@ -85,6 +85,9 @@ export default {
   mounted() {
     this.$refs.swiperItem[this.displayIndex].style = "left:0px;display:block;";
   },
+  destroyed(){
+    this.StopTimer();
+  },
   methods: {
     groundImage(number) {
       let imagesNumber = this.imageData.length;

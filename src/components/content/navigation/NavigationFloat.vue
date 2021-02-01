@@ -1,81 +1,89 @@
 <template>
-    <div id='stickycontent' class="header-sticky-content">
-      <div class="header-wrap">
-        <div  class="sticky-image-content">
-          <router-link to="/Home" >
-            <img src="https://s10.mogucdn.com/mlcdn/c45406/190102_6df9775216h16jc84da8c9hdfi3ga_258x60.png" alt="">
-          </router-link>
-        </div>
-        <header-tool></header-tool>
+  <div id="stickycontent" class="header-sticky-content">
+    <div class="header-wrap">
+      <div class="sticky-image-content">
+        <router-link to="/Home">
+          <img
+            src="https://s10.mogucdn.com/mlcdn/c45406/190102_6df9775216h16jc84da8c9hdfi3ga_258x60.png"
+            alt=""
+          />
+        </router-link>
       </div>
+      <header-tool></header-tool>
     </div>
+  </div>
 </template>
 
 <script>
-import HeaderTool from './component/HeaderTool.vue';
+import HeaderTool from "./component/HeaderTool.vue";
 export default {
-components: { 
-
-HeaderTool
-    },
-name:'NavigationFloat',
-mounted(){
-    this.$nextTick(function(){
-        window.addEventListener('scroll',function(){
+  components: {
+    HeaderTool,
+  },
+  name: "NavigationFloat",
+  mounted() {
+    this.$nextTick(function () {
+      window.addEventListener("scroll",this.isDisplayNavigation);
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll",this.isDisplayNavigation);
+  },
+  methods: {
+    isDisplayNavigation() {
         let scrollTop = document.documentElement.scrollTop;
-        let sticky =document.getElementById('stickycontent');
+        let sticky = document.getElementById("stickycontent");
         // console.log(scrollTop+'');
-        if(scrollTop>120 && sticky.className.indexOf('header-sticky-show')==-1){
-          sticky.className+=' header-sticky-show';
+        if (
+          scrollTop > 120 &&
+          sticky.className.indexOf("header-sticky-show") == -1
+        ) {
+          sticky.className += " header-sticky-show";
         }
-        if(scrollTop<120){
-          sticky.classList.remove('header-sticky-show');
+        if (scrollTop < 120) {
+          sticky.classList.remove("header-sticky-show");
         }
-        })
-    })
-},
-methods:{
-
-}
-}
+    },
+  },
+};
 </script>
 <style lang='less' scoped>
 .header-sticky-content {
   z-index: 999;
   width: 100%;
-  position:fixed;
-  top:-75px;
-  padding:12px 0 9px 0;
-  box-shadow:0 1px 6px #ccc;
-  transition: all 0.5s ease ;
+  position: fixed;
+  top: -75px;
+  padding: 12px 0 9px 0;
+  box-shadow: 0 1px 6px #ccc;
+  transition: all 0.5s ease;
   background-color: #fff;
 }
 .header-sticky-show {
-  top:0;
-  transition: all 0.5s ease ;
+  top: 0;
+  transition: all 0.5s ease;
 }
-.header-wrap{
+.header-wrap {
   width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
-.sticky-image-content{
-  width:195px;
+.sticky-image-content {
+  width: 195px;
   height: 30px;
   margin-top: 8px;
   float: left;
 }
-.sticky-image-content img{
-  width:129px;
+.sticky-image-content img {
+  width: 129px;
   height: 30px;
 }
 .normal-seach-content {
   // width: 550px;
-  margin:0 0 0 0;
+  margin: 0 0 0 0;
   height: 44px;
 }
-.function-icon{
-  width:335px;
+.function-icon {
+  width: 335px;
   float: left;
   margin: 0 0 0 26px;
   // margin: 30px 0 0 26px;

@@ -97,6 +97,7 @@ import CompanyRight from '../../components/common/companyRight/CompanyRight.vue'
 import OurInfo from '../../components/content/foot/components/OurInfo.vue';
 
 import {LoginCheck} from '../../network/login'
+import { mapMutations } from 'vuex'
 export default {
   components: {OurInfo, CompanyRight  },
   name: "MouseRoomLogin",
@@ -108,30 +109,48 @@ export default {
       userName:'',
       password:''
       }
-
     };
   },
+  beforeMount(){
+    // if(this.$store.state.Token !=''){
+    //   this.$router.push('/ShoppingMall')
+    // }
+  },
   methods: {
+     ...mapMutations(['changeLogin']),
     ClickInputArea(){
       this.LoginInfo='';
     },
     clickTab(params) {
       this.isActive = params;
     },
+    valifyPAndU(){
+      if(this.UserMsg.userName=='' || this.UserMsg.password == ''){
+       this.LoginInfo='账号或密码不能为空哦';
+       return false;
+      }
+      return true
+    },
     LoginCheck(){
+      if(this.valifyPAndU()){
       let loginData = new FormData();
       loginData.append('userName',this.UserMsg.userName)
       loginData.append('password',this.UserMsg.password)
       LoginCheck(loginData).then(data=>{
         if(data.status!=0){
         this.LoginInfo=data.message;
+
         }
         else{
           this.LoginInfo='';
-           console.log('登录成功');
+          this.changeLogin({Token:data.token});
+          console.log(data.token);
+          this.$router.push('/Goods')
         }
  
       })
+      }
+
     }
  }
 }

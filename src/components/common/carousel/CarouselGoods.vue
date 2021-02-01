@@ -67,6 +67,9 @@ export default {
         // //  )
     // this.$nextTick(this.CarouselTimer());
   },
+  // destroyed(){
+  //   this.StopTimer();
+  // },
   methods: {
     MoveImage() {
       if(this.$refs.carouselImage.className.indexOf('arrow-left') > -1){

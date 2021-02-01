@@ -8,7 +8,7 @@ const Register = () => import('../views/register/RegisterUser.vue')
 const routers = [
   {
     path: '*',
-    redirect: '/ShppingMall',
+    redirect: '/ShoppingMall',
   },
   {
     path: '/Home',
@@ -30,7 +30,7 @@ const routers = [
     component: Goods
   },
   {
-    path: '/ShppingMall',
+    path: '/ShoppingMall',
     component: ShppingMall,
      meta: { title: '蘑菇街商城' }
   },

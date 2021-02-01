@@ -17,17 +17,22 @@ export function request(config) {
   // }, err => {
   //   console.log(err);
   // })
-  instance.interceptors.request.use((config=>{
-    if(config.method  === 'post'){
-      if(config.headers['Content-Type'] != 'application/json'){
-        console.log();
-      }
+  instance.interceptors.request.use(
+    config => {
+    if(localStorage.getItem('Token')!=''){
+      config.headers.Token = localStorage.getItem('Token');
     }
-    return config
-  }))
+    if (config.method === 'post') {
+          if (config.headers['Content-Type'] != 'application/json') {
+            console.log();
+          }
+        }
+      return config
+    }
+  )
   // 2.2.响应拦截
   instance.interceptors.response.use((data) => {
-     return data.data;
+    return data.data;
   }, err => {
     console.log(err);
   })
