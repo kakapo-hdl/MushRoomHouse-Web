@@ -5,6 +5,8 @@ const Login = () => import('../views/login/MouseRoomLogin.vue')
 const Goods = () => import('../views/goods/GoodsDetail.vue')
 const ShppingMall = () => import('../views/shoppingMall/ShoppingMall.vue')
 const Register = () => import('../views/register/RegisterUser.vue')
+
+const BackStage = () => import('../views/backstage/BackStage.vue')
 const routers = [
   {
     path: '*',
@@ -38,6 +40,11 @@ const routers = [
     path:'/register',
     component:Register,
     meta:{title:"注册账户"}
+  },
+  {
+    path:'/BackStage',
+    component:BackStage,
+    meta:{title:"蘑菇街后台"}
   }
 ]
 

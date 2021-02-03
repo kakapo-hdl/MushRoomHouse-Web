@@ -10,7 +10,8 @@ router.beforeEach((to, from, next) => {
   Vue.nextTick(() => {
     document.title = to.meta.title || '蘑菇街';
   });
-  if (to.path === '/Login' || to.path === '/ShoppingMall' ||to.path === '/Goods' || to.path === '/Category' || to.path === '/Home') {
+  //  '/Login' || to.path === '/ShoppingMall' ||to.path === '/Goods' || to.path === '/Category' || to.path === '/Home'
+  if (to.path !== '/Goods') {
     next();
   } else {
     let token = localStorage.getItem('Token');
