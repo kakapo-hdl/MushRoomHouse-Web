@@ -1,6 +1,5 @@
 import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home.vue')
-const Category = () => import('../views/category/category.vue')
 const Login = () => import('../views/login/MouseRoomLogin.vue')
 const Goods = () => import('../views/goods/GoodsDetail.vue')
 const ShppingMall = () => import('../views/shoppingMall/ShoppingMall.vue')
@@ -19,11 +18,7 @@ const routers = [
     component: Home,
     meta: { title: '蘑菇街' }
   },
-  {
-    path: '/Category',
-    component: Category, 
-    meta: { title: 'Skills - MyApp' }
-  },
+
   {
     path: '/Login',
     component: Login,
