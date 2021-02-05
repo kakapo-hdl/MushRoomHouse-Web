@@ -76,7 +76,7 @@ import MenIntroduction from '../../../components/common/personInfo/MenIntroducti
 export default {
   components: {
     MenIntroduction,
-    CarouselGoods
+    CarouselGoods,
   },
   name:
      "GoodsDisplay",

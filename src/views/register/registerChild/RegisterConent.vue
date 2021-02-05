@@ -89,8 +89,9 @@
 </template>
 
 <script>
-import { regionData,CodeToText} from "element-china-area-data";
-import { InsertUser,getSystemUser } from "../../../network/home";
+import { regionData } from "element-china-area-data";
+import { InsertUser } from "../../../network/home";
+import axios from 'axios'
 export default {
   name: "Register-content",
   data() {
@@ -158,15 +159,9 @@ export default {
         }      
     };
   },
-   created(){
-    
-   getSystemUser(680).then(data=>{
-      this.UserForm=data.user;
-      this.UserForm.checkPassword = data.user.password;
-      this.provinceData=data.user.location;
-    });
-
-  },
+  // mounted(){
+  //   // console.log(this.option);
+  // },
   methods: {
     GetFile() {
       this.$refs.uploadImg.click();
@@ -180,12 +175,28 @@ export default {
     SubmitForm(formName){
       let flie = this.$refs.uploadImg.files[0];
       let cacheData = new FormData();
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-        cacheData.append('systemUser',new Blob([JSON.stringify(this.UserForm)], {type: "application/json"})); 
-        cacheData.append('imageFile',flie)
-        console.log(cacheData);
-        InsertUser(cacheData)
+      
+         this.$refs[formName].validate((valid) => {
+          if (valid) {
+          if(this.UserSex === "男") this.UserForm.sex=true;
+          else this.UserForm.sex=false;
+        //  cacheData  = this.UserForm;
+         cacheData.append('imageFile',flie)
+         cacheData.append('userName',this.UserForm.userName)
+          cacheData.append('password',this.UserForm.password)
+//           Object.keys(this.UserForm).map(key=>{
+
+//    cacheData.append(key,this.UserForm[key]);~
+
+// });
+          console.log(cacheData);
+          let ax=axios.create();
+          ax.post('http://localhost:8080/api/insert', cacheData, {
+    // headers: {
+    //   'Content-Type': 'multipart/form-data'
+    // }
+})
+          // InsertUser(cacheData)
           } else {
             console.log('error submit!!');
             return false;
