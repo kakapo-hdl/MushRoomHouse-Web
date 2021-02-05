@@ -7,6 +7,8 @@ const ShppingMall = () => import('../views/shoppingMall/ShoppingMall.vue')
 const Register = () => import('../views/register/RegisterUser.vue')
 
 const BackStage = () => import('../views/backstage/BackStage.vue')
+const CategorySetting = () => import('../views/backstage/backstageitem/CategorySetting.vue')
+const ProductSetting = () => import('../views/backstage/backstageitem/ProductSetting.vue')
 const routers = [
   {
     path: '*',
@@ -44,7 +46,17 @@ const routers = [
   {
     path:'/BackStage',
     component:BackStage,
-    meta:{title:"蘑菇街后台"}
+    meta:{title:"蘑菇街后台"},
+    children:[
+    {
+      path:'CategorySetting',
+      component:CategorySetting
+    },
+    {
+      path:'ProductSetting',
+      component:ProductSetting
+    }
+  ]
   }
 ]
 

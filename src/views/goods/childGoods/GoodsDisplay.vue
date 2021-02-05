@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import CarouselGoods from '../../../components/common/carousel/CarouselGoods.vue';
+import CarouselGoods from '../../../components/common/carousel/CarouselGoods';
 import MenIntroduction from '../../../components/common/personInfo/MenIntroduction.vue';
 
 export default {
