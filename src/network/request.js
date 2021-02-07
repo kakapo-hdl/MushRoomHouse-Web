@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Qs from 'qs'
 
 
 export function request(config) {
@@ -10,23 +9,16 @@ export function request(config) {
   })
 
   // 2.axios的拦截器
-  // 2.1.请求拦截的作用
-
-  // instance.request(config => {
-  //   return config
-  // }, err => {
-  //   console.log(err);
-  // })
   instance.interceptors.request.use(
     config => {
     if(localStorage.getItem('Token')!=''){
       config.headers.Token = localStorage.getItem('Token');
     }
-    if (config.method === 'post') {
-          if (config.headers['Content-Type'] != 'application/json') {
-            console.log();
-          }
-        }
+    // if (config.method === 'post') {
+    //       if (config.headers['Content-Type'] != 'application/json') {
+    //         console.log();
+    //       }
+    //     }
       return config
     }
   )

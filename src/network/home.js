@@ -3,14 +3,14 @@ import {request} from "./request";
 export function getAllUser() {
   return request({
     method:"Get",
-    url: '/api/getAllUser'
+    url: '/User/getAllUser'
   })
 }
 
 export function getSystemUser(id) {
   return request({
     method:"Get",
-    url: '/api/getSystemUser',
+    url: '/User/getSystemUser',
     params:{
       id
     }
@@ -18,7 +18,7 @@ export function getSystemUser(id) {
 }
 export function DeleteUserById(id) {
   return request({
-    url: '/api/Delete',
+    url: '/User/Delete',
     params: {
       id,
     }
@@ -26,7 +26,7 @@ export function DeleteUserById(id) {
 }
 export function InsertUser(data) {
   return request({
-    url: '/api/insert',
+    url: '/User/insert',
     method:'Post',
     data:data,
   })

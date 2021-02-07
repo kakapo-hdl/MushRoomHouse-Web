@@ -8,7 +8,7 @@ export function JsToFormData(obj) { //对象转formdata格式
   return formData;
 }
 export function Format(Date,fmt)   
-{ //author: meizz   
+{ 
 var o = {   
   "M+" : Date.getMonth()+1,                 //月份   
   "d+" : Date.getDate(),                    //日   

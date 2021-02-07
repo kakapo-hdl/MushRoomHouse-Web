@@ -184,18 +184,11 @@ export default {
          cacheData.append('imageFile',flie)
          cacheData.append('userName',this.UserForm.userName)
           cacheData.append('password',this.UserForm.password)
-//           Object.keys(this.UserForm).map(key=>{
-
-//    cacheData.append(key,this.UserForm[key]);~
-
-// });
           console.log(cacheData);
           let ax=axios.create();
           ax.post('http://localhost:8080/api/insert', cacheData, {
-    // headers: {
-    //   'Content-Type': 'multipart/form-data'
-    // }
-})
+
+          })
           // InsertUser(cacheData)
           } else {
             console.log('error submit!!');

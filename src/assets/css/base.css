@@ -56,6 +56,10 @@ img {
  .mgj-foot-companyright .mgj-content-us-certificate b{
   color: #FFF !important; ;
 }
+.thumbnail-image{
+  width: 80px;
+  height: 65px;
+}
 .pink-buttom{
   color: var(--color-pink);
   border: 1px solid var(--color-pink);

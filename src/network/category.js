@@ -7,28 +7,27 @@ export function GetAllCategory(){
   })
 }
 
-export  function InsertCategory(){
-  return request({
-    method:"post",
-    url: '/Category/Insert'
-  })
-}
+// export  function InsertCategory(data){
+//   return request({
+//     method:"post",
+//     url: '/Category/Insert',
+//     data:data,
+//   })
+// }
 
 export  function DeleteCategory(id){
   return request({
     method:"delete",
     url: '/Category/Delete',
-    param:{
+    params:{
         id,
     }
   })
 }
-export function UpdateCategory(data){
+export function UpdateOrCreate(data){
   return request({
-    method:"put",
-    url: '/Category/Upate',
-    param:{
-        data
-    }
+    method:"post",
+    url: '/Category/UpdateOrCreate',
+    data:data
   })
 }
