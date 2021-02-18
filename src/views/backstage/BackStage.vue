@@ -21,10 +21,9 @@
               <!-- @open="handleOpen"
       @close="handleClose" -->
     <el-menu
-    router
+      router
       default-active="2"
-      class="el-menu-vertical-demo"
-
+      style="width:100%"
       background-color="#1C273F"
       text-color="#fff"
       active-text-color="#FF4466">
@@ -144,7 +143,7 @@ methods:{
 }
 .manage-right-memu{
     display: table-cell;
-    width: 200px;
+    width: 202.5px;
     background: #fff;
     border-right: 1px solid #eee;
     overflow-x: hidden;
