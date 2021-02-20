@@ -177,6 +177,7 @@ export default {
       this.categoryForm.name = data.name;
       this.categoryForm.imageUrl = data.imageUrl;
       this.categoryForm.parentId = data.parentId;
+      this.categoryForm.categoryParams=[...data.categoryParams]
       this.imageFile = {};
       this.modalVisible = true;
       this.$nextTick(() => {
@@ -184,6 +185,7 @@ export default {
       });
     },
     formCheck() {
+       this.categoryForm.categoryParams
       let formData = JsToFormData(this.categoryForm);
       formData.append("imageFile", this.imageFile);
       return formData;
